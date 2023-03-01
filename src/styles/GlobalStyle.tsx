@@ -50,6 +50,19 @@ const styles = css`
   textarea {
     font-family: inherit;
   }
+
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a,
+  a:link {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 function GlobalStyle() {

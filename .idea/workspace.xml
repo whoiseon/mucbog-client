@@ -13,16 +13,14 @@
       <change afterPath="$PROJECT_DIR$/src/assets/vectors/menu.svg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/auth/AuthForm.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/auth/WelcomeText.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/base/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/system/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/system/Input.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/system/LabelInput.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/system/MenuToggleButton.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/system/ThemeToggleButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/api/auth.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/lib/api/types.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/lib/error.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useBodyScrollLock.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/lib/hooks/useInput.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/lib/hooks/useMyAccount.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/lib/hooks/useTheme.ts" afterDir="false" />
@@ -34,6 +32,9 @@
       <change afterPath="$PROJECT_DIR$/src/states/darkMode.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/base/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/storage.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
@@ -86,7 +87,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677571987296</updated>
-      <workItem from="1677571988470" duration="36771000" />
+      <workItem from="1677571988470" duration="39258000" />
     </task>
     <servers />
   </component>

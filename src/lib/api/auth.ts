@@ -18,3 +18,8 @@ export const login = async (params: loginRequestParams) => {
   const response = await axios.post('/api/auth/login', params);
   return response.data;
 };
+
+export const logout = async () => {
+  const response = await axios.post('/api/auth/logout', {});
+  return response.data;
+};

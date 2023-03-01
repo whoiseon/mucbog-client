@@ -58,12 +58,12 @@ const variantStyles = {
     }
   `,
   text: css`
-    background: ${themedPalette.bg_element2};
-    color: ${themedPalette.text4};
+    background: none;
+    color: ${themedPalette.text3};
     text-decoration: none;
     &:hover {
       background: ${themedPalette.bg_element3};
-      color: ${themedPalette.text4};
+      color: ${themedPalette.text2};
     }
   `,
 };
@@ -87,7 +87,6 @@ const sharedStyles = (props: ButtonProps) => css`
   display: flex;
   ${sizeStyles[props.size!]};
   ${variantStyles[props.variant!]!};
-  font-weight: 600;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
@@ -95,6 +94,7 @@ const sharedStyles = (props: ButtonProps) => css`
   border: none;
   font-size: 16px;
   font-weight: 700;
+  cursor: pointer;
 
   &:disabled {
     filter: grayscale(0.6);
