@@ -11,6 +11,11 @@ type ThemeVariables = {
   border2: string;
   border3: string;
   border4: string;
+  primary1: string;
+  primary2: string;
+  destructive1: string;
+  destructive2: string;
+  button_text: string;
 };
 
 type Theme = 'light' | 'dark';
@@ -31,6 +36,11 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     border2: '#ADB5BD',
     border3: '#DEE2E6',
     border4: '#F1F3F5',
+    primary1: '#349EE6',
+    primary2: '#3AB0FF',
+    destructive1: '#DF6868',
+    destructive2: '#F87474',
+    button_text: '#FFFFFF',
   },
   dark: {
     bg_page: '#121212',
@@ -41,10 +51,15 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     text2: '#D9D9D9',
     text3: '#ACACAC',
     text4: '#666666',
-    border1: '#2A2A2A',
-    border2: '#4D4D4D',
-    border3: '#A0A0A0',
-    border4: '#E0E0E0',
+    border1: '#E0E0E0',
+    border2: '#A0A0A0',
+    border3: '#4D4D4D',
+    border4: '#2A2A2A',
+    primary1: '#9DD7FF',
+    primary2: '#75C8FF',
+    destructive1: '#FCBABA',
+    destructive2: '#FA9E9E',
+    button_text: '#121212',
   },
 };
 
@@ -73,5 +88,3 @@ export const themedPalette: Record<VariableKey, string> = variableKeys.reduce(
   },
   {} as ThemedPalette,
 );
-
-console.log(themes);

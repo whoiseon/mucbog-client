@@ -1,6 +1,14 @@
 import Head from 'next/head';
+import BasicTemplate from '@/components/templates/BasicTemplate';
+import useMyAccount from '@/lib/hooks/useMyAccount';
+import { GetServerSideProps } from 'next';
+import { dehydrate, isServer, QueryClient } from '@tanstack/query-core';
+import { getMyAccount } from '@/lib/api/auth';
+import axios from 'axios';
 
 export default function Home() {
+  const { data: userData } = useMyAccount();
+
   return (
     <>
       <Head>
@@ -9,9 +17,44 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <h1>Darkmode</h1>
-      </div>
+      <BasicTemplate>
+        {userData?.username}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+        {/*<p>aiwjfpoaweifj</p>*/}
+      </BasicTemplate>
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { req } = ctx;
+  const cookie = req ? req.headers.cookie : '';
+  if (req && cookie) {
+    axios.defaults.headers.Cookie = cookie;
+  }
+
+  const queryClient = new QueryClient();
+  await queryClient.prefetchQuery(['me'], getMyAccount);
+
+  return {
+    props: {
+      dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
+    },
+  };
+};

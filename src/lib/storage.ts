@@ -1,6 +1,6 @@
 function checkLocalStorage() {
   try {
-    localStorage.set('test', 'test');
+    localStorage.setItem('test', 'test');
     localStorage.removeItem('test');
     return true;
   } catch (e) {
