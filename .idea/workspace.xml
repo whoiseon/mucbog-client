@@ -5,45 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/vectors/close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/vectors/dark.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/vectors/light.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/vectors/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/vectors/menu.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/auth/AuthForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/auth/WelcomeText.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/system/Input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/system/LabelInput.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/system/MenuToggleButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/system/ThemeToggleButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/api/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/error.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useBodyScrollLock.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useInput.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useMyAccount.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useTheme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useThemeEffect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useToggle.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useToggleTheme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/renderStatic.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/admin/auth/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/states/darkMode.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/base/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/system/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/storage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/storage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/GlobalStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/GlobalStyle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Home.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/palette.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/palette.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,22 +22,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/Users/hwang-inseon/Desktop/portfolio/mucbog/mucbog-frontend/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/Users/hwang-inseon/Desktop/portfolio/mucbog/mucbog-frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/hwang-inseon/Desktop/portfolio/mucbog/mucbog-frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/hwang-inseon/Desktop/portfolio/mucbog/mucbog-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/vectors" />
@@ -87,7 +51,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677571987296</updated>
-      <workItem from="1677571988470" duration="39258000" />
+      <workItem from="1677571988470" duration="40252000" />
+      <workItem from="1677765989585" duration="1544000" />
     </task>
     <servers />
   </component>

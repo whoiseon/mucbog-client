@@ -5,10 +5,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getMyAccount, logout } from '@/lib/api/auth';
 import Button from '@/components/system/Button';
 import { useCallback } from 'react';
+import {keyframes} from "@emotion/react";
 
 const menuItemsMap = [
-  { name: 'Home.', href: '/' },
-  { name: 'About.', href: '/about' },
+  { name: '개발', href: '/' },
+  { name: '프로젝트', href: '/about' },
 ];
 
 function MobileMenu() {
@@ -43,6 +44,8 @@ function MobileMenu() {
             <Link href={item.href}>{item.name}</Link>
           </MenuItem>
         ))}
+      </MenuGroup>
+      <MenuGroup>
         {myData && (
           <MenuItem>
             <Button layout="fullWidth" variant="text" onClick={onLogout}>
@@ -55,6 +58,17 @@ function MobileMenu() {
   );
 }
 
+const MenuShowAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Block = styled.nav`
   position: absolute;
   top: 60px;
@@ -62,12 +76,16 @@ const Block = styled.nav`
   background: ${themedPalette.bg_page};
   width: 100%;
   height: 100%;
-  padding: 16px;
   display: flex;
   flex-direction: column;
+  animation: ${MenuShowAnimation} 0.3s ease-in-out;
 `;
 
-const MenuGroup = styled.ul``;
+const MenuGroup = styled.ul`
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 16px;
+`;
 
 const MenuItem = styled.li`
   a {
@@ -75,9 +93,15 @@ const MenuItem = styled.li`
     width: 100%;
     padding-top: 12px;
     padding-bottom: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    color: ${themedPalette.text2};
   }
   button {
-    margin-top: 12px;
+    font-size: 18px;
+  }
+  &:not(:first-child) {
+    margin-top: 8px;
   }
 `;
 

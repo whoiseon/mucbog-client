@@ -48,8 +48,8 @@ const Block = styled.header`
 const Title = styled(Link)`
   svg {
     color: ${themedPalette.text1};
-    width: 72px;
-    height: 20px;
+    width: 76px;
+    height: 24px;
   }
 `;
 
