@@ -36,9 +36,3 @@ export default function App({ Component, pageProps }: AppProps) {
     </QueryClientProvider>
   );
 }
-
-App.getInitialProps = async (appContext: AppContext) => {
-  const cookies = nookies.get(appContext.ctx);
-  const theme = cookies.theme;
-  return { theme };
-};

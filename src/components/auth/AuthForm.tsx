@@ -8,6 +8,7 @@ import { login } from '@/lib/api/auth';
 import { themedPalette } from '@/styles/palette';
 import { extractError } from '@/lib/error';
 import { useRouter } from 'next/router';
+import {media} from "@/lib/media";
 
 function AuthForm() {
   const router = useRouter();
@@ -55,7 +56,8 @@ function AuthForm() {
   );
 
   return (
-    <Block onSubmit={onSubmit}>
+    <StyledForm onSubmit={onSubmit}>
+      <WelcomeText>오늘 하루도 고생많았어요 :)</WelcomeText>
       <InputGroup>
         <LabelInput
           type="text"
@@ -78,16 +80,23 @@ function AuthForm() {
           로그인
         </Button>
       </ActionBox>
-    </Block>
+    </StyledForm>
   );
 }
 
-const Block = styled.form`
+const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  padding-left: 16px;
-  padding-right: 16px;
+  justify-content: center;
+  align-self: center;
+  padding: 16px;
+  width: 100%;
+  flex: 1;
+  gap: 24px;
+  
+  ${media.mobile} {
+    width: 460px;
+  }
 `;
 
 const InputGroup = styled.div`
@@ -97,13 +106,21 @@ const InputGroup = styled.div`
 `;
 
 const ActionBox = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
 `;
 
 const ErrorMessage = styled.p`
   color: ${themedPalette.destructive2};
+`;
+
+const WelcomeText = styled.h2`
+  margin: 0;
+  font-size: 16px;
+  color: ${themedPalette.text1};
+  text-align: center;
 `;
 
 export default AuthForm;

@@ -19,13 +19,15 @@ function Header() {
   return (
     <>
       <Block>
-        <Title href="/">
-          <Logo />
-        </Title>
-        <HeaderRight>
-          {themeInit && <ThemeToggleButton />}
-          <MenuToggleButton isOpen={menu} onClick={toggleMenu} />
-        </HeaderRight>
+        <Inner>
+          <Title href="/">
+            <Logo />
+          </Title>
+          <HeaderRight>
+            {themeInit && <ThemeToggleButton />}
+            <MenuToggleButton isOpen={menu} onClick={toggleMenu} />
+          </HeaderRight>
+        </Inner>
       </Block>
       {menu && <MobileMenu />}
     </>
@@ -37,12 +39,20 @@ const Block = styled.header`
   top: 0;
   width: 100%;
   height: 60px;
-  padding-left: 16px;
-  padding-right: 16px;
+  backdrop-filter: saturate(180%) blur(5px);
+`;
+
+const Inner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  backdrop-filter: saturate(180%) blur(5px);
+  width: 1280px;
+  max-width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
 `;
 
 const Title = styled(Link)`

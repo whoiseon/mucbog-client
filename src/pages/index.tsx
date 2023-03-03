@@ -5,6 +5,8 @@ import { GetServerSideProps } from 'next';
 import { dehydrate, isServer, QueryClient } from '@tanstack/query-core';
 import { getMyAccount } from '@/lib/api/auth';
 import axios from 'axios';
+import styled from "@emotion/styled";
+import {media} from "@/lib/media";
 
 export default function Home() {
   const { data: userData } = useMyAccount();
@@ -18,29 +20,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicTemplate>
-        {userData?.username}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
-        {/*<p>aiwjfpoaweifj</p>*/}
+        <Content>
+          {userData?.username}님 어서와요
+        </Content>
       </BasicTemplate>
     </>
   );
 }
+
+const Content = styled.div`
+  padding: 16px;
+  ${media.wide} {
+    width: 1280px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { req } = ctx;
