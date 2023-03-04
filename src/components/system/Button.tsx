@@ -8,6 +8,7 @@ interface ButtonProps {
   layout?: 'inline' | 'fullWidth';
   size?: 'small' | 'medium';
   variant?: 'primary' | 'secondary' | 'text';
+  icon?: React.ReactNode;
 }
 
 interface Props
@@ -22,6 +23,7 @@ function Button({
   size = 'medium',
   variant = 'primary',
   href,
+  icon,
   ...rest
 }: Props) {
   if (href) {
@@ -33,6 +35,7 @@ function Button({
         href={href}
         style={rest.style}
       >
+        {icon}
         {rest.children}
       </StyledLink>
     );
@@ -95,6 +98,12 @@ const sharedStyles = (props: ButtonProps) => css`
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
 
   &:disabled {
     filter: grayscale(0.6);
