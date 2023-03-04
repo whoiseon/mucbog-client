@@ -6,19 +6,17 @@ import { getMyAccount, logout } from '@/lib/api/auth';
 import Button from '@/components/system/Button';
 import { useCallback } from 'react';
 import {keyframes} from "@emotion/react";
+import useMyAccount from "@/lib/hooks/useMyAccount";
 
 const menuItemsMap = [
   { name: '개발', href: '/' },
-  { name: '프로젝트', href: '/about' },
+  { name: '프로젝트', href: '/project' },
 ];
 
 function MobileMenu() {
   const queryClient = useQueryClient();
 
-  const { data: myData } = useQuery({
-    queryKey: ['me'],
-    queryFn: getMyAccount,
-  });
+  const { data: myData } = useMyAccount();
 
   const useLogout = useMutation({
     mutationFn: logout,
@@ -100,7 +98,7 @@ const MenuItem = styled.li`
   button {
     font-size: 18px;
   }
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     margin-top: 8px;
   }
 `;

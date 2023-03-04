@@ -5,17 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useGoBack.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/media.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/system/HeaderText.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/system/TuiEditor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useIsMobile.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/project/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/auth/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/auth/AuthForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/auth/WelcomeText.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/base/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/ThemeToggleButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/ThemeToggleButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/auth/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/auth/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +64,8 @@
       <option name="presentableId" value="Default" />
       <updated>1677571987296</updated>
       <workItem from="1677571988470" duration="40252000" />
-      <workItem from="1677765989585" duration="6856000" />
+      <workItem from="1677765989585" duration="6970000" />
+      <workItem from="1677896775862" duration="7222000" />
     </task>
     <servers />
   </component>

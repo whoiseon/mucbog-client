@@ -3,16 +3,25 @@ import styled from '@emotion/styled';
 import Logo from '@/assets/vectors/logo.svg';
 import { themedPalette } from '@/styles/palette';
 import Link from 'next/link';
-import ThemeToggleButton from '@/components/system/ThemeToggleButton';
 import useDarkMode from '@/states/darkMode';
 import useToggle from '@/lib/hooks/useToggle';
-import MenuToggleButton from '@/components/system/MenuToggleButton';
 import MobileMenu from '@/components/base/MobileMenu';
 import useBodyScrollLock from '@/lib/hooks/useBodyScrollLock';
+import dynamic from "next/dynamic";
+import useIsMobile from "@/lib/hooks/useIsMobile";
+import Button from "@/components/system/Button";
+import {media} from "@/lib/media";
+import useMyAccount from "@/lib/hooks/useMyAccount";
+
+const MenuToggleButton = dynamic(() => import('@/components/system/MenuToggleButton'), { ssr: false });
+const ThemeToggleButton = dynamic(() => import('@/components/system/ThemeToggleButton'), { ssr: false });
 
 function Header() {
+  const { data: myData } = useMyAccount();
+
   const [menu, toggleMenu] = useToggle(false);
   const themeInit = useDarkMode((state) => state.systemTheme !== 'not-ready');
+  const [isMobile, mediaLoading] = useIsMobile();
 
   useBodyScrollLock(menu);
 
@@ -25,7 +34,23 @@ function Header() {
           </Title>
           <HeaderRight>
             {themeInit && <ThemeToggleButton />}
-            <MenuToggleButton isOpen={menu} onClick={toggleMenu} />
+            {
+              mediaLoading && (
+                isMobile
+                  ? (
+                    <>
+                      <MenuToggleButton isOpen={menu} onClick={toggleMenu} />
+                    </>
+                  )
+                  : (
+                    <>
+                      <Button variant="text" size="small" href="/">개발</Button>
+                      <Button variant="text" size="small" href="/project">프로젝트</Button>
+                      {myData && <Button variant="primary" size="small" href="admin/write">새 글 작성</Button>}
+                    </>
+                  )
+              )
+            }
           </HeaderRight>
         </Inner>
       </Block>
@@ -58,8 +83,8 @@ const Inner = styled.div`
 const Title = styled(Link)`
   svg {
     color: ${themedPalette.text1};
-    width: 76px;
-    height: 24px;
+    width: 82px;
+    height: 30px;
   }
 `;
 
@@ -67,7 +92,9 @@ const HeaderRight = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
+  ${media.mobile} {
+    gap: 8px;
+  }
 `;
 
 export default Header;

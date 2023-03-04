@@ -60,7 +60,6 @@ const IconButton = styled.button`
   border: none;
   width: 36px;
   height: 36px;
-  margin-right: -12px;
   border-radius: 50%;
   padding: 8px;
   cursor: pointer;

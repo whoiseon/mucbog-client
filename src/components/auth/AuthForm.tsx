@@ -87,15 +87,16 @@ function AuthForm() {
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-self: center;
-  padding: 16px;
+  padding: 32px 16px 16px;
   width: 100%;
   flex: 1;
   gap: 24px;
   
   ${media.mobile} {
     width: 460px;
+    justify-content: center;
+    align-self: center;
+    padding: 16px;
   }
 `;
 
