@@ -5,12 +5,11 @@ import { GetServerSideProps } from 'next';
 import { dehydrate, isServer, QueryClient } from '@tanstack/query-core';
 import { getMyAccount } from '@/lib/api/auth';
 import axios from 'axios';
-import styled from "@emotion/styled";
-import HeaderText from "@/components/system/HeaderText";
+import styled from '@emotion/styled';
+import HeaderText from '@/components/system/HeaderText';
 
 export default function Home() {
   const { data: userData } = useMyAccount();
-
   return (
     <>
       <Head>

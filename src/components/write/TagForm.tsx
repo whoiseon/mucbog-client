@@ -4,42 +4,30 @@ import { media } from '@/lib/media';
 import React, { useState } from 'react';
 import Tag from '@/components/system/Tag';
 
-function TagForm() {
-  const [tags, setTags] = useState<string[]>([]);
-  const [tagValue, setTagValue] = useState<string>('');
+interface Props {
+  value: string;
+  tags: string[];
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: (event: any) => void;
+  onRemove: (tag: string) => void;
+}
 
-  const onKeypressComma = (event: any) => {
-    if (event.code === 'Comma') {
-      if (tagValue === '') return;
-      setTags((prev) => [...prev, event.target.value]);
-      setTagValue('');
-    }
-  };
-
-  const onChangeTagValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value === ',') return;
-    setTagValue(event.target.value);
-  };
-
-  const onClickRemoveTag = (tag: string) => {
-    setTags((prev) => prev.filter((t) => t !== tag));
-  };
-
+function TagForm({ value, tags, onKeyDown, onChange, onRemove }: Props) {
   return (
     <Block>
       {tags.length > 0 && (
         <TagGroup>
           {tags.map((tag) => (
-            <Tag key={tag} name={tag} remove={onClickRemoveTag} />
+            <Tag key={tag} name={tag} remove={onRemove} />
           ))}
         </TagGroup>
       )}
       <TagInput
         type="text"
         placeholder="태그를 입력해주세요"
-        onKeyPress={onKeypressComma}
-        value={tagValue}
-        onChange={onChangeTagValue}
+        onKeyDown={onKeyDown}
+        value={value}
+        onChange={onChange}
       />
     </Block>
   );

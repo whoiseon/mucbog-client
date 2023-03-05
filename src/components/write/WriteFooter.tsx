@@ -3,19 +3,30 @@ import { themedPalette } from '@/styles/palette';
 import useGoBack from '@/lib/hooks/useGoBack';
 import Button from '@/components/system/Button';
 import BackArrowIcon from '@/assets/vectors/back-arrow.svg';
+import React, { useCallback } from 'react';
 
-function WriteFooter() {
+interface Props {
+  step: number;
+  goBackStep: () => void;
+}
+
+function WriteFooter({ step, goBackStep }: Props) {
   const goBack = useGoBack();
+  const backStep = useCallback(() => {}, []);
   return (
     <Block>
       <FooterSide>
-        <Button type="button" variant="text" onClick={goBack}>
+        <Button
+          type="button"
+          variant="text"
+          onClick={step === 1 ? goBack : goBackStep}
+        >
           <BackArrowIcon />
-          나가기
+          {step === 1 ? '나가기' : '뒤로가기'}
         </Button>
       </FooterSide>
       <FooterSide>
-        <Button type="button" variant="primary">
+        <Button type="submit" variant="primary">
           작성하기
         </Button>
       </FooterSide>

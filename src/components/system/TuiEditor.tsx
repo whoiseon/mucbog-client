@@ -6,15 +6,15 @@ import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-sy
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import { Editor } from '@toast-ui/react-editor';
-import { useTheme } from '@/lib/hooks/useTheme';
 import useIsMobile from '@/lib/hooks/useIsMobile';
 
 interface Props {
   content: string;
   editorRef: React.MutableRefObject<any>;
+  onChange: () => void;
 }
 
-function TuiEditor({ content, editorRef }: Props) {
+function TuiEditor({ content, editorRef, onChange }: Props) {
   const [isMobile, mediaLoading] = useIsMobile();
 
   const toolbarItems = [
@@ -27,6 +27,7 @@ function TuiEditor({ content, editorRef }: Props) {
       {editorRef && (
         <Editor
           ref={editorRef}
+          onChange={onChange}
           initialValue={content || ''}
           placeholder="오늘은 어떤 일이 있었나요?"
           initialEditType="markdown"
