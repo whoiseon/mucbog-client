@@ -1,10 +1,10 @@
 import React from 'react';
-import { SetState } from 'zustand';
 import styled from '@emotion/styled';
 import { themedPalette } from '@/styles/palette';
 import { media } from '@/lib/media';
 import { uploadImage } from '@/lib/api/image';
 import LabelFile from '@/components/system/LabelFile';
+import Button from '@/components/system/Button';
 
 interface Props {
   value: string;
@@ -12,7 +12,14 @@ interface Props {
   title: string;
   thumbnail: string;
   setThumbnail: React.Dispatch<React.SetStateAction<string>>;
+  categoryId: number;
+  setCategoryId: React.Dispatch<React.SetStateAction<number>>;
 }
+
+const CategoryMaps = [
+  { id: 1, name: '개발' },
+  { id: 2, name: '프로젝트' },
+];
 
 function WriteFinalStep({
   value,
@@ -20,6 +27,8 @@ function WriteFinalStep({
   title,
   setThumbnail,
   thumbnail,
+  categoryId,
+  setCategoryId,
 }: Props) {
   const onChangeThumbnail = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -38,6 +47,30 @@ function WriteFinalStep({
     <Block>
       <Content>
         <Title>{title}</Title>
+        <ButtonGroup>
+          {CategoryMaps.map((c) => {
+            const isActive = categoryId === c.id;
+            return (
+              <Button
+                key={c.id}
+                type="button"
+                layout="fullWidth"
+                variant="text"
+                onClick={() => setCategoryId(c.id)}
+                style={
+                  isActive
+                    ? {
+                        backgroundColor: themedPalette.primary2,
+                        color: themedPalette.button_text,
+                      }
+                    : undefined
+                }
+              >
+                {c.name}
+              </Button>
+            );
+          })}
+        </ButtonGroup>
         <LabelFile
           id="thumbnail-image"
           thumbnail={thumbnail}
@@ -74,6 +107,11 @@ const Content = styled.div`
   ${media.mobile} {
     width: 460px;
   }
+`;
+
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 8px;
 `;
 
 const StyledTextArea = styled.textarea`

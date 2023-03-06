@@ -8,10 +8,21 @@ interface PostRequestParams {
   description: string;
   body: string;
   tags: string[];
-  thumbnail?: string;
+  thumbnail: string;
+  categoryId: number;
 }
 
-export const getPosts = async () => {
-  const response = await axios.get('/api/posts');
+export const getDevPosts = async () => {
+  const response = await axios.get('/api/posts/dev');
+  return response.data;
+};
+
+export const getProjectPosts = async () => {
+  const response = await axios.get('/api/posts/project');
+  return response.data;
+};
+
+export const createPosts = async (params: PostRequestParams) => {
+  const response = await axios.post('/api/posts', params);
   return response.data;
 };

@@ -10,18 +10,21 @@ interface Props {
   header?: React.ReactNode;
 }
 
-function BasicTemplate({ header = <Header />, children, className, desktopHeaderVisible = true }: Props) {
+function BasicTemplate({
+  header = <Header />,
+  children,
+  className,
+  desktopHeaderVisible = true,
+}: Props) {
   return (
     <>
       {desktopHeaderVisible && header}
-      <Content className={className}>
-        {children}
-      </Content>
+      <Content className={className}>{children}</Content>
     </>
   );
 }
 
-const Content = styled.div`
+const Content = styled.main`
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -36,6 +39,6 @@ const HeaderText = styled.span`
   font-weight: 700;
   padding: 20px 0;
   margin: 48px 0 32px;
-`
+`;
 
 export default BasicTemplate;

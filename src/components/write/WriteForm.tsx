@@ -10,6 +10,9 @@ import { toast, ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import WriteFinalStep from '@/components/write/WriteFinalStep';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createPosts } from '@/lib/api/post';
+import { useRouter } from 'next/router';
 
 const Editor = dynamic(() => import('@/components/system/TuiEditor'), {
   ssr: false,
@@ -17,6 +20,8 @@ const Editor = dynamic(() => import('@/components/system/TuiEditor'), {
 });
 
 function WriteForm() {
+  const queryClient = useQueryClient();
+  const router = useRouter();
   const [step, setStep] = useState<number>(1);
 
   const editorRef = useRef<any>(null);
@@ -28,6 +33,7 @@ function WriteForm() {
   });
   const [description, onChangeDescription, setDescription] = useInput('');
   const [thumbnail, setThumbnail] = useState<string>('');
+  const [categoryId, setCategoryId] = useState<number>(1);
 
   const [tagValue, setTagValue] = useState<string>('');
 
@@ -94,12 +100,38 @@ function WriteForm() {
     );
   };
 
+  const clearInput = () => {
+    setTitle('');
+    setTags([]);
+    setBody((prev) => ({
+      ...prev,
+      text: '',
+      html: '',
+    }));
+    setTagValue('');
+    setDescription('');
+    setThumbnail('');
+    setCategoryId(1);
+  };
+
+  const { isLoading, mutate } = useMutation({
+    mutationKey: ['posts'],
+    mutationFn: createPosts,
+    onSuccess: () => {
+      queryClient.refetchQueries(['posts']);
+      router.push('/');
+    },
+    onError: (error: any) => {
+      console.log(error.response);
+    },
+  });
+
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const errorByStep =
       step === 1
         ? '제목, 내용 태그를 입력해주세요!'
-        : '이미지와 추가 설명을 입력해주세요!';
+        : '카테고리, 이미지, 추가 설명을 입력해주세요!';
     if (validInput()) {
       toast(errorByStep, {
         position: 'top-right',
@@ -118,17 +150,15 @@ function WriteForm() {
     setStep(2);
 
     if (step === 2) {
-      setTitle('');
-      setTags([]);
-      setBody((prev) => ({
-        ...prev,
-        text: '',
-        html: '',
-      }));
-      setTagValue('');
-      setDescription('');
-      setThumbnail('');
-      console.log({ title, tags, body: body.html, description, thumbnail });
+      clearInput();
+      mutate({
+        title,
+        tags,
+        body: body.html,
+        description,
+        thumbnail,
+        categoryId,
+      });
     }
   };
 
@@ -159,10 +189,12 @@ function WriteForm() {
       {step === 2 && (
         <WriteFinalStep
           title={title}
-          setThumbnail={setThumbnail}
           value={description}
           onChange={onChangeDescription}
           thumbnail={thumbnail}
+          setThumbnail={setThumbnail}
+          categoryId={categoryId}
+          setCategoryId={setCategoryId}
         />
       )}
       <WriteFooter step={step} goBackStep={goBackStep} />
