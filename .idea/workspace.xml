@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: editor css customized and tag form">
-      <change afterPath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" afterDir="false" />
+    <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
+      <change afterPath="$PROJECT_DIR$/src/components/system/LabelFile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/api/image.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/api/post.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/Input.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/system/TuiEditor.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/TuiEditor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/write/TagForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/TagForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/write/WriteFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteFooter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/hooks/useInput.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/hooks/useInput.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +68,8 @@
       <workItem from="1677765989585" duration="6970000" />
       <workItem from="1677896775862" duration="7311000" />
       <workItem from="1677905697188" duration="12119000" />
-      <workItem from="1677995645955" duration="9386000" />
+      <workItem from="1677995645955" duration="9535000" />
+      <workItem from="1678077061438" duration="6848000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>
@@ -76,7 +78,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677954407367</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: implement write step">
+      <created>1678019598741</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678019598741</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: editor css customized and tag form" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: editor css customized and tag form" />
+    <MESSAGE value="feat: implement write step" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: implement write step" />
   </component>
 </project>

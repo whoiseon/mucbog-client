@@ -7,9 +7,15 @@ import { getMyAccount } from '@/lib/api/auth';
 import axios from 'axios';
 import styled from '@emotion/styled';
 import HeaderText from '@/components/system/HeaderText';
+import { getPosts } from '@/lib/api/post';
+import { useQuery } from '@tanstack/react-query';
+import { Post } from '@/lib/api/types';
 
 export default function Home() {
-  const { data: userData } = useMyAccount();
+  const { data: postsData } = useQuery<Post[]>({
+    queryKey: ['posts'],
+    queryFn: getPosts,
+  });
   return (
     <>
       <Head>
@@ -21,7 +27,9 @@ export default function Home() {
       <BasicTemplate>
         <Content>
           <HeaderText title="개발" />
-          {userData?.username}님 어서와요
+          {postsData?.map((post) => (
+            <div key={post.id}>{post.title}</div>
+          ))}
         </Content>
       </BasicTemplate>
     </>
@@ -46,6 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['me'], getMyAccount);
+  await queryClient.prefetchQuery(['posts'], getPosts);
 
   return {
     props: {

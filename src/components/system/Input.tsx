@@ -6,6 +6,9 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 function Input(props: InputProps) {
+  if (props.type === 'file') {
+    return <StyledFileInput {...props} />;
+  }
   return <StyledInput {...props} />;
 }
 
@@ -42,6 +45,17 @@ const StyledInput = styled.input`
       box-shadow: none;
     }
   }
+`;
+
+const StyledFileInput = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 `;
 
 export default memo(Input);

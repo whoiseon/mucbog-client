@@ -29,7 +29,6 @@ function TuiEditor({ content, editorRef, onChange }: Props) {
           ref={editorRef}
           onChange={onChange}
           initialValue={content || ''}
-          placeholder="오늘은 어떤 일이 있었나요?"
           initialEditType="markdown"
           previewStyle={isMobile ? 'tab' : 'vertical'}
           hideModeSwitch={true}

@@ -27,6 +27,7 @@ function WriteForm() {
     html: '',
   });
   const [description, onChangeDescription, setDescription] = useInput('');
+  const [thumbnail, setThumbnail] = useState<string>('');
 
   const [tagValue, setTagValue] = useState<string>('');
 
@@ -83,10 +84,24 @@ function WriteForm() {
     }));
   };
 
+  const validInput = () => {
+    if (step === 1) {
+      return !title || !body.text || tags.length <= 0;
+    }
+    // step === 2
+    return (
+      !title || !body.text || tags.length <= 0 || !description || !thumbnail
+    );
+  };
+
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (title === '' || body.text === '' || tags.length <= 0) {
-      toast('제목, 내용, 태그를 입력해주세요!', {
+    const errorByStep =
+      step === 1
+        ? '제목, 내용 태그를 입력해주세요!'
+        : '이미지와 추가 설명을 입력해주세요!';
+    if (validInput()) {
+      toast(errorByStep, {
         position: 'top-right',
         type: 'error',
         autoClose: 3000,
@@ -111,7 +126,9 @@ function WriteForm() {
         html: '',
       }));
       setTagValue('');
-      console.log({ title, tags, body, description });
+      setDescription('');
+      setThumbnail('');
+      console.log({ title, tags, body: body.html, description, thumbnail });
     }
   };
 
@@ -140,7 +157,13 @@ function WriteForm() {
         </>
       )}
       {step === 2 && (
-        <WriteFinalStep value={description} onChange={onChangeDescription} />
+        <WriteFinalStep
+          title={title}
+          setThumbnail={setThumbnail}
+          value={description}
+          onChange={onChangeDescription}
+          thumbnail={thumbnail}
+        />
       )}
       <WriteFooter step={step} goBackStep={goBackStep} />
       <ToastContainer limit={1} />
