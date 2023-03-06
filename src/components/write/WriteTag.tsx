@@ -7,7 +7,7 @@ interface Props {
   remove: (tag: string) => void;
 }
 
-function Tag({ name, remove }: Props) {
+function WriteTag({ name, remove }: Props) {
   return <StyledTag onClick={() => remove(name)}>{name}</StyledTag>;
 }
 
@@ -34,4 +34,4 @@ const StyledTag = styled.div`
   animation: ${ShowTagAnimation} 0.2s ease-in-out;
 `;
 
-export default Tag;
+export default WriteTag;

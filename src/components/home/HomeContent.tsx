@@ -1,17 +1,19 @@
 import styled from '@emotion/styled';
 import LinkCardList from '@/components/home/LinkCardList';
 import { media } from '@/lib/media';
+import HomeTagList from '@/components/home/HomeTagList';
 
 function HomeContent() {
   return (
     <Block>
       <LinkCardList />
-      <div>태그</div>
+      <HomeTagList />
     </Block>
   );
 }
 
 const Block = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
   gap: 32px;

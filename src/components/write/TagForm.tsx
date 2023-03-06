@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { themedPalette } from '@/styles/palette';
 import { media } from '@/lib/media';
 import React, { useState } from 'react';
-import Tag from '@/components/system/Tag';
+import WriteTag from '@/components/write/WriteTag';
 
 interface Props {
   value: string;
@@ -18,7 +18,7 @@ function TagForm({ value, tags, onKeyDown, onChange, onRemove }: Props) {
       {tags.length > 0 && (
         <TagGroup>
           {tags.map((tag) => (
-            <Tag key={tag} name={tag} remove={onRemove} />
+            <WriteTag key={tag} name={tag} remove={onRemove} />
           ))}
         </TagGroup>
       )}

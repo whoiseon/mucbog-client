@@ -7,14 +7,20 @@ import useDarkMode from '@/states/darkMode';
 import useToggle from '@/lib/hooks/useToggle';
 import MobileMenu from '@/components/base/MobileMenu';
 import useBodyScrollLock from '@/lib/hooks/useBodyScrollLock';
-import dynamic from "next/dynamic";
-import useIsMobile from "@/lib/hooks/useIsMobile";
-import Button from "@/components/system/Button";
-import {media} from "@/lib/media";
-import useMyAccount from "@/lib/hooks/useMyAccount";
+import dynamic from 'next/dynamic';
+import useIsMobile from '@/lib/hooks/useIsMobile';
+import Button from '@/components/system/Button';
+import { media } from '@/lib/media';
+import useMyAccount from '@/lib/hooks/useMyAccount';
 
-const MenuToggleButton = dynamic(() => import('@/components/system/MenuToggleButton'), { ssr: false });
-const ThemeToggleButton = dynamic(() => import('@/components/system/ThemeToggleButton'), { ssr: false });
+const MenuToggleButton = dynamic(
+  () => import('@/components/system/MenuToggleButton'),
+  { ssr: false },
+);
+const ThemeToggleButton = dynamic(
+  () => import('@/components/system/ThemeToggleButton'),
+  { ssr: false },
+);
 
 function Header() {
   const { data: myData } = useMyAccount();
@@ -34,23 +40,26 @@ function Header() {
           </Title>
           <HeaderRight>
             {themeInit && <ThemeToggleButton />}
-            {
-              mediaLoading && (
-                isMobile
-                  ? (
-                    <>
-                      <MenuToggleButton isOpen={menu} onClick={toggleMenu} />
-                    </>
-                  )
-                  : (
-                    <>
-                      <Button variant="text" size="small" href="/">개발</Button>
-                      <Button variant="text" size="small" href="/project">프로젝트</Button>
-                      {myData && <Button variant="primary" size="small" href="admin/write">새 글 작성</Button>}
-                    </>
-                  )
-              )
-            }
+            {mediaLoading &&
+              (isMobile ? (
+                <>
+                  <MenuToggleButton isOpen={menu} onClick={toggleMenu} />
+                </>
+              ) : (
+                <>
+                  <Button variant="text" size="small" href="/">
+                    개발
+                  </Button>
+                  <Button variant="text" size="small" href="/project">
+                    프로젝트
+                  </Button>
+                  {myData && (
+                    <Button variant="primary" size="small" href="admin/write">
+                      새 글 작성
+                    </Button>
+                  )}
+                </>
+              ))}
           </HeaderRight>
         </Inner>
       </Block>
@@ -65,6 +74,7 @@ const Block = styled.header`
   width: 100%;
   height: 60px;
   backdrop-filter: saturate(180%) blur(5px);
+  z-index: 100;
 `;
 
 const Inner = styled.div`

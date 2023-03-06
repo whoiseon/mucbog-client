@@ -11,12 +11,9 @@ import { getDevPosts } from '@/lib/api/post';
 import { useQuery } from '@tanstack/react-query';
 import { Post } from '@/lib/api/types';
 import HomeContent from '@/components/home/HomeContent';
+import { getAllTags } from '@/lib/api/tag';
 
 export default function Home() {
-  const { data: postsData } = useQuery<Post[]>({
-    queryKey: ['posts'],
-    queryFn: getDevPosts,
-  });
   return (
     <>
       <Head>
@@ -55,6 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['me'], getMyAccount);
   await queryClient.prefetchQuery(['posts'], getDevPosts);
+  await queryClient.prefetchQuery(['tags'], getAllTags);
 
   return {
     props: {

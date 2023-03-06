@@ -7,6 +7,12 @@ export interface User {
 }
 
 export interface Tag {
+  tag_id: number;
+  tag_name: string;
+  post_count: string;
+}
+
+export interface PostTag {
   id: number;
   name: string;
 }
@@ -19,5 +25,5 @@ export interface Post {
   createdAt: Date;
   thumbnail?: string;
   user: User;
-  tags: Tag[];
+  tags: PostTag[];
 }

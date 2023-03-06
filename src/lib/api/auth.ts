@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { isServer } from '@tanstack/query-core';
 
 axios.defaults.baseURL = 'http://localhost:4000';
 axios.defaults.withCredentials = true;
