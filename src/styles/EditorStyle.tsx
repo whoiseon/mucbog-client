@@ -156,3 +156,32 @@ export const EditorStyle = css`
     }
   }
 `;
+
+export const markdownBodyStyle = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    border-bottom: none;
+    color: ${themedPalette.text1};
+    padding: 40px 0 16px;
+  }
+
+  code {
+    background-color: ${themedPalette.bg_element3};
+    border-radius: 3px;
+    color: ${themedPalette.text2};
+    font-size: 95%;
+    padding: 3px 6px;
+  }
+
+  pre {
+    background-color: ${themedPalette.bg_element2};
+    border-radius: 6px;
+    padding: 16px;
+    margin: 8px 0 8px;
+    overflow: auto;
+  }
+`;

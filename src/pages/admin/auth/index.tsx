@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import BasicTemplate from '@/components/templates/BasicTemplate';
 import AuthForm from '@/components/auth/AuthForm';
-import WelcomeText from '@/components/auth/WelcomeText';
 import { GetServerSideProps } from 'next';
 
 function AuthPage() {

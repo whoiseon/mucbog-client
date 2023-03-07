@@ -8,10 +8,10 @@ import useToggle from '@/lib/hooks/useToggle';
 import MobileMenu from '@/components/base/MobileMenu';
 import useBodyScrollLock from '@/lib/hooks/useBodyScrollLock';
 import dynamic from 'next/dynamic';
-import useIsMobile from '@/lib/hooks/useIsMobile';
 import Button from '@/components/system/Button';
 import { media } from '@/lib/media';
 import useMyAccount from '@/lib/hooks/useMyAccount';
+import useIsMobile from '@/lib/hooks/useIsMobile';
 
 const MenuToggleButton = dynamic(
   () => import('@/components/system/MenuToggleButton'),
@@ -74,7 +74,7 @@ const Block = styled.header`
   width: 100%;
   height: 60px;
   backdrop-filter: saturate(180%) blur(5px);
-  z-index: 100;
+  z-index: 1;
 `;
 
 const Inner = styled.div`

@@ -98,7 +98,11 @@ const sharedStyles = (props: ButtonProps) => css`
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  
+
+  &:link {
+    color: ${themedPalette.button_text};
+  }
+
   svg {
     width: 20px;
     height: 20px;

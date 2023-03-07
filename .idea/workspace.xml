@@ -5,19 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
-      <change afterPath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/home/HomeTagList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/system/TagCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/api/tag.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/post/PostViewer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/generate-slug.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useIsTablet.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/translate-category.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/[category]/[post_title]/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/base/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeTagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeTagList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/home/LinkCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/LinkCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/system/Tag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteTag.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/write/TagForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/TagForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/LinkCardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/LinkCardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/LabelFile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/LabelFile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/TagCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/TagCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/post.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/api/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/auth/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/auth/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/EditorStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/EditorStyle.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +81,8 @@
       <workItem from="1677896775862" duration="7311000" />
       <workItem from="1677905697188" duration="12119000" />
       <workItem from="1677995645955" duration="9535000" />
-      <workItem from="1678077061438" duration="18957000" />
+      <workItem from="1678077061438" duration="19694000" />
+      <workItem from="1678162810004" duration="19013000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>

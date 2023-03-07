@@ -19,6 +19,8 @@ const Block = styled.div`
   gap: 32px;
   ${media.tablet} {
     flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
   }
 `;
 

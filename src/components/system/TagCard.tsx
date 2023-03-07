@@ -1,24 +1,45 @@
 import styled from '@emotion/styled';
 import { themedPalette } from '@/styles/palette';
+import { css } from '@emotion/react';
 
-interface Props {
+interface TagProps {
+  size?: 'small' | 'medium';
+}
+
+interface Props extends TagProps {
   name: string;
 }
 
-function TagCard({ name }: Props) {
-  return <StyledTag>{name}</StyledTag>;
+function TagCard({ name, size = 'small' }: Props) {
+  return <StyledTag size={size}>{name}</StyledTag>;
 }
 
-const StyledTag = styled.div`
+const sizeStyles = {
+  small: css`
+    height: 28px;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+  `,
+  medium: css`
+    height: 32px;
+    font-size: 18px;
+    padding-left: 14px;
+    padding-right: 14px;
+  `,
+};
+
+const SharedStyles = (props: TagProps) => css`
   display: inline-flex;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  ${sizeStyles[props.size!]}
   color: ${themedPalette.primary1};
   background-color: ${themedPalette.bg_element3};
   border-radius: 4px;
-  height: 28px;
-  margin-right: 8px;
+`;
+
+const StyledTag = styled.div<TagProps>`
+  ${(props) => SharedStyles(props)}
 `;
 
 export default TagCard;

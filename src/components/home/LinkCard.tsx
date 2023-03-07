@@ -7,6 +7,8 @@ import moment from 'moment';
 
 import 'moment/locale/ko';
 import TagCard from '@/components/system/TagCard';
+import generateSlug from '@/lib/generate-slug';
+import translateCategory from '@/lib/translate-category';
 
 interface Props {
   post: Post;
@@ -15,10 +17,14 @@ interface Props {
 function LinkCard({ post }: Props) {
   return (
     <Block>
-      <StyledLink href="/">
+      <StyledLink
+        href={`/${translateCategory(post.category.name)}/${generateSlug(
+          post.title,
+        )}`}
+      >
         {post.thumbnail && <Thumbnail src={post.thumbnail} alt={post.title} />}
         <PostInfo>
-          <h2>{post.title}</h2>
+          <h3>{post.title}</h3>
           <p>{post.description}</p>
           <p>{moment(post.createdAt).locale('ko').fromNow()}</p>
           <TagGroup>
@@ -36,7 +42,7 @@ const Block = styled.article`
   display: flex;
   align-items: center;
 
-  h2 {
+  h3 {
     margin: 0;
     font-size: 24px;
     font-weight: 600;
@@ -44,6 +50,7 @@ const Block = styled.article`
     color: ${themedPalette.text1};
     ${media.tablet} {
       font-size: 28px;
+      max-width: 480px;
     }
   }
   p {

@@ -1,15 +1,12 @@
 import Head from 'next/head';
 import BasicTemplate from '@/components/templates/BasicTemplate';
-import useMyAccount from '@/lib/hooks/useMyAccount';
 import { GetServerSideProps } from 'next';
 import { dehydrate, isServer, QueryClient } from '@tanstack/query-core';
 import { getMyAccount } from '@/lib/api/auth';
 import axios from 'axios';
 import styled from '@emotion/styled';
 import HeaderText from '@/components/system/HeaderText';
-import { getDevPosts } from '@/lib/api/post';
-import { useQuery } from '@tanstack/react-query';
-import { Post } from '@/lib/api/types';
+import { getDevRecentPosts, getPostsByTag } from '@/lib/api/post';
 import HomeContent from '@/components/home/HomeContent';
 import { getAllTags } from '@/lib/api/tag';
 
@@ -51,8 +48,14 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['me'], getMyAccount);
-  await queryClient.prefetchQuery(['posts'], getDevPosts);
+  await queryClient.prefetchQuery(['posts'], getDevRecentPosts);
   await queryClient.prefetchQuery(['tags'], getAllTags);
+
+  if (ctx.query['tag']) {
+    await queryClient.prefetchQuery(['posts', ctx.query['tag']], () =>
+      getPostsByTag(ctx.query['tag'] as string),
+    );
+  }
 
   return {
     props: {

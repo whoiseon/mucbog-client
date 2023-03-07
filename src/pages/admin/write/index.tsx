@@ -1,5 +1,6 @@
-import Head from "next/head";
-import WriteForm from "@/components/write/WriteForm";
+import Head from 'next/head';
+import WriteForm from '@/components/write/WriteForm';
+import { GetServerSideProps } from 'next';
 
 function WritePage() {
   return (
@@ -12,7 +13,23 @@ function WritePage() {
       </Head>
       <WriteForm />
     </>
-  )
+  );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const { cookies } = req;
+  if (!cookies.access_token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/',
+      },
+      props: {},
+    };
+  }
+  return {
+    props: {},
+  };
+};
 
 export default WritePage;

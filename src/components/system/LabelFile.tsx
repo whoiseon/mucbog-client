@@ -14,7 +14,7 @@ function LabelFile({ thumbnail, ...rest }: Props) {
     <Block>
       <label htmlFor="thumbnail-image">
         {thumbnail ? (
-          <Image src={thumbnail} alt="thumbnail_preview" fill sizes="100vw" />
+          <img src={thumbnail} alt="thumbnail_preview" />
         ) : (
           <NoImage>썸네일 이미지를 업로드해주세요.</NoImage>
         )}
@@ -36,6 +36,8 @@ const Block = styled.div`
   }
   img {
     object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 `;
 
