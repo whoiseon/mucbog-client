@@ -27,16 +27,15 @@ function WriteForm() {
   const editorRef = useRef<any>(null);
   const [title, onChangeTitle, setTitle] = useInput('');
   const [tags, setTags] = useState<string[]>([]);
-  const [body, setBody] = useState({
-    text: '',
-    html: '',
-  });
+  const [body, setBody] = useState('');
   const [description, onChangeDescription, setDescription] = useInput('');
   const [thumbnail, setThumbnail] = useState<string>('');
   const [categoryId, setCategoryId] = useState<number>(1);
 
   const [tagValue, setTagValue] = useState<string>('');
-
+  useEffect(() => {
+    console.log(body);
+  }, [body]);
   const goBackStep = () => {
     setStep((prev) => prev - 1);
   };
@@ -82,32 +81,21 @@ function WriteForm() {
 
   const onChangeBody = () => {
     const editorMarkdown = editorRef.current!.getInstance().getMarkdown();
-    const editorHtml = editorRef.current!.getInstance().getHTML();
-    setBody((prev) => ({
-      ...prev,
-      text: editorMarkdown,
-      html: editorHtml,
-    }));
+    setBody(editorMarkdown);
   };
 
   const validInput = () => {
     if (step === 1) {
-      return !title || !body.text || tags.length <= 0;
+      return !title || !body || tags.length <= 0;
     }
     // step === 2
-    return (
-      !title || !body.text || tags.length <= 0 || !description || !thumbnail
-    );
+    return !title || !body || tags.length <= 0 || !description || !thumbnail;
   };
 
   const clearInput = () => {
     setTitle('');
     setTags([]);
-    setBody((prev) => ({
-      ...prev,
-      text: '',
-      html: '',
-    }));
+    setBody('');
     setTagValue('');
     setDescription('');
     setThumbnail('');
@@ -154,7 +142,7 @@ function WriteForm() {
       mutate({
         title,
         tags,
-        body: body.html,
+        body,
         description,
         thumbnail,
         categoryId,
@@ -181,7 +169,7 @@ function WriteForm() {
           />
           <Editor
             onChange={onChangeBody}
-            content={body.text}
+            content={body}
             editorRef={editorRef}
           />
         </>

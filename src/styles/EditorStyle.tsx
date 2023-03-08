@@ -1,5 +1,6 @@
 import { css, Global } from '@emotion/react';
 import { themedPalette } from '@/styles/palette';
+import { media } from '@/lib/media';
 
 export const EditorStyle = css`
   .toastui-editor-defaultUI {
@@ -81,6 +82,10 @@ export const EditorStyle = css`
       padding: 16px 24px;
       height: calc(100% - 80px);
 
+      ${media.mobile} {
+        font-size: 18px;
+      }
+
       .toastui-editor-md-code {
         background-color: ${themedPalette.bg_element2};
       }
@@ -104,6 +109,9 @@ export const EditorStyle = css`
 
   .toastui-editor-contents {
     font-size: 16px;
+    ${media.mobile} {
+      font-size: 18px;
+    }
 
     p {
       color: ${themedPalette.text1};
@@ -122,7 +130,7 @@ export const EditorStyle = css`
     }
     blockquote {
       background: ${themedPalette.bg_element3};
-      padding: 16px;
+      padding: 16px 16px 16px 32px;
       border-left: 4px solid ${themedPalette.primary2};
     }
     hr {
@@ -141,6 +149,17 @@ export const EditorStyle = css`
     h6 {
       border-bottom: none;
       color: ${themedPalette.text1};
+    }
+
+    a {
+      color: ${themedPalette.primary2};
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    del {
+      color: ${themedPalette.text4};
     }
 
     .toastui-editor-md-preview-highlight::after {
@@ -175,6 +194,34 @@ export const markdownBodyStyle = css`
     color: ${themedPalette.text2};
     font-size: 95%;
     padding: 3px 6px;
+    text-shadow: none;
+  }
+  blockquote {
+    background: ${themedPalette.bg_element3};
+    padding: 16px 16px 16px 32px;
+    border-left: 4px solid ${themedPalette.primary2};
+    margin-left: 0;
+    margin-right: 0;
+  }
+  hr {
+    border: 0.5px solid ${themedPalette.border4};
+  }
+  a {
+    color: ${themedPalette.primary2};
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    padding-left: 16px;
+    li {
+      list-style: disc;
+    }
+  }
+
+  del {
+    color: ${themedPalette.text4};
   }
 
   pre {
@@ -183,5 +230,10 @@ export const markdownBodyStyle = css`
     padding: 16px;
     margin: 8px 0 8px;
     overflow: auto;
+
+    & > code {
+      background: none;
+      font-size: 14px;
+    }
   }
 `;

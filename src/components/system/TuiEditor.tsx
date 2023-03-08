@@ -2,9 +2,12 @@ import '@toast-ui/editor/dist/i18n/ko-kr';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
+import 'prismjs/themes/prism.css';
 
 import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
+import Prism from 'prismjs';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 import { Editor } from '@toast-ui/react-editor';
 import useIsMobile from '@/lib/hooks/useIsMobile';
 
@@ -37,7 +40,7 @@ function TuiEditor({ content, editorRef, onChange }: Props) {
           toolbarItems={toolbarItems}
           language="ko-KR"
           useCommandShortcut={true}
-          plugins={[colorSyntax]}
+          plugins={[colorSyntax, [codeSyntaxHighlight, { highlighter: Prism }]]}
         />
       )}
     </>

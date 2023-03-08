@@ -28,7 +28,7 @@ export const getAllPosts = async () => {
 };
 
 export const getPostsByTag = async (tagName: string) => {
-  const response = await axios.get(`/api/posts?tag=${tagName}`);
+  const response = await axios.get(`/api/posts/tag/${tagName}`);
   return response.data;
 };
 

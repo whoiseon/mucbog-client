@@ -54,7 +54,7 @@ function Header() {
                     프로젝트
                   </Button>
                   {myData && (
-                    <Button variant="primary" size="small" href="admin/write">
+                    <Button variant="primary" size="small" href="/admin/write">
                       새 글 작성
                     </Button>
                   )}

@@ -2,6 +2,7 @@ import Head from 'next/head';
 import BasicTemplate from '@/components/templates/BasicTemplate';
 import AuthForm from '@/components/auth/AuthForm';
 import { GetServerSideProps } from 'next';
+import styled from '@emotion/styled';
 
 function AuthPage() {
   return (
@@ -13,11 +14,21 @@ function AuthPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BasicTemplate desktopHeaderVisible={false}>
-        <AuthForm />
+        <Content>
+          <AuthForm />
+        </Content>
       </BasicTemplate>
     </>
   );
 }
+
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const { cookies } = req;

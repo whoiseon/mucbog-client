@@ -18,15 +18,15 @@ function BasicTemplate({
 }: Props) {
   return (
     <>
-      {desktopHeaderVisible && header}
-      <Content className={className}>{children}</Content>
+      <Content className={className}>
+        {desktopHeaderVisible && header}
+        {children}
+      </Content>
     </>
   );
 }
 
 const Content = styled.main`
-  display: flex;
-  flex-direction: column;
   height: 100%;
 `;
 

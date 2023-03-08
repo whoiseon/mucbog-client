@@ -8,7 +8,7 @@ import { login } from '@/lib/api/auth';
 import { themedPalette } from '@/styles/palette';
 import { extractError } from '@/lib/error';
 import { useRouter } from 'next/router';
-import {media} from "@/lib/media";
+import { media } from '@/lib/media';
 
 function AuthForm() {
   const router = useRouter();
@@ -91,9 +91,9 @@ const StyledForm = styled.form`
   width: 100%;
   flex: 1;
   gap: 24px;
-  
+
   ${media.mobile} {
-    width: 460px;
+    max-width: 460px;
     justify-content: center;
     align-self: center;
     padding: 16px;

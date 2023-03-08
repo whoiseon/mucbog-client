@@ -10,6 +10,9 @@ import useIsTablet from '@/lib/hooks/useIsTablet';
 import { media } from '@/lib/media';
 import { markdownBodyStyle } from '@/styles/EditorStyle';
 
+import 'prismjs/themes/prism.css';
+import { marked } from 'marked';
+
 function PostViewer() {
   const { query } = useRouter();
   const { data: post } = useQuery<Post>({
@@ -17,7 +20,9 @@ function PostViewer() {
     queryFn: () => getPostByTitle(query.post_title as string),
   });
   const [isTablet, mediaInit] = useIsTablet();
-  console.log(post);
+
+  const html = marked(post?.body as string);
+
   return (
     <Block>
       <Header>
@@ -36,9 +41,7 @@ function PostViewer() {
       <Content>
         <Body>
           <Thumbnail src={post?.thumbnail} alt={post?.title} />
-          <BodyContent
-            dangerouslySetInnerHTML={{ __html: post?.body as string }}
-          />
+          <BodyContent dangerouslySetInnerHTML={{ __html: html }} />
         </Body>
         {mediaInit && !isTablet && <Table>456</Table>}
       </Content>
@@ -107,9 +110,9 @@ const BodyContent = styled.div`
   margin-bottom: 32px;
   line-height: 1.5;
   color: ${themedPalette.text1};
-  font-size: 14px;
+  font-size: 16px;
   ${media.tablet} {
-    font-size: 16px;
+    font-size: 18px;
   }
   ${markdownBodyStyle};
 `;
