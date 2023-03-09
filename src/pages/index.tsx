@@ -9,8 +9,11 @@ import HeaderText from '@/components/system/HeaderText';
 import { getDevRecentPosts, getPostsByTag } from '@/lib/api/post';
 import HomeContent from '@/components/home/HomeContent';
 import { getAllTags } from '@/lib/api/tag';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  const router = useRouter();
+  console.log(router.query.tag);
   return (
     <>
       <Head>
@@ -21,7 +24,7 @@ export default function Home() {
       </Head>
       <BasicTemplate>
         <Content>
-          <HeaderText title="개발" />
+          <HeaderText title={router.query.tag ? router.query.tag : '개발'} />
           <HomeContent />
         </Content>
       </BasicTemplate>

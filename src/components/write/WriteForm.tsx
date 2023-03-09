@@ -33,9 +33,7 @@ function WriteForm() {
   const [categoryId, setCategoryId] = useState<number>(1);
 
   const [tagValue, setTagValue] = useState<string>('');
-  useEffect(() => {
-    console.log(body);
-  }, [body]);
+
   const goBackStep = () => {
     setStep((prev) => prev - 1);
   };

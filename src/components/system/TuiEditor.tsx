@@ -2,9 +2,9 @@ import '@toast-ui/editor/dist/i18n/ko-kr';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
-import 'prismjs/themes/prism.css';
+import 'prism-themes/themes/prism-one-dark.css';
 
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React from 'react';
 import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import Prism from 'prismjs';
 import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';

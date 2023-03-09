@@ -1,15 +1,10 @@
 import Head from 'next/head';
 import BasicTemplate from '@/components/templates/BasicTemplate';
 import styled from '@emotion/styled';
-import { Post } from '@/lib/api/types';
 import PostViewer from '@/components/post/PostViewer';
 import { GetServerSideProps } from 'next';
 import { dehydrate, QueryClient } from '@tanstack/query-core';
 import { getPostByTitle } from '@/lib/api/post';
-
-interface Props {
-  post: Post;
-}
 
 export default function Home() {
   return (

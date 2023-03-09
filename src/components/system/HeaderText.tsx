@@ -1,12 +1,12 @@
-import styled from "@emotion/styled";
-import {media} from "@/lib/media";
+import styled from '@emotion/styled';
+import { media } from '@/lib/media';
 
 interface Props {
-  title: string;
+  title: string | string[];
 }
 
-function HeaderText ({ title }: Props) {
-  return <StyledText>{ title }</StyledText>
+function HeaderText({ title }: Props) {
+  return <StyledText>{title}</StyledText>;
 }
 
 const StyledText = styled.span`
@@ -20,6 +20,6 @@ const StyledText = styled.span`
     margin: 48px 0 32px;
     font-size: 32px;
   }
-`
+`;
 
 export default HeaderText;

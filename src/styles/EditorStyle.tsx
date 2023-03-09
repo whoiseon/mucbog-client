@@ -89,6 +89,11 @@ export const EditorStyle = css`
       .toastui-editor-md-code {
         background-color: ${themedPalette.bg_element2};
       }
+      .toastui-editor-md-code-block-line-background {
+        background: none;
+        font-style: italic;
+        color: ${themedPalette.text4};
+      }
     }
 
     .toastui-editor-md-splitter {
@@ -101,7 +106,7 @@ export const EditorStyle = css`
   }
 
   .toastui-editor-md-container {
-    .toastui-editor-md-preview {
+    . .toastui-editor-md-preview {
       padding: 0 24px;
       height: calc(100% - 80px);
     }
@@ -117,6 +122,7 @@ export const EditorStyle = css`
       color: ${themedPalette.text1};
     }
     pre {
+      font-size: 14px;
       background-color: ${themedPalette.bg_element3};
       border-radius: 6px;
       padding: 16px;

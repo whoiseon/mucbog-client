@@ -1,10 +1,11 @@
+import 'prismjs/themes/prism.css';
+
 import type { AppContext, AppProps } from 'next/app';
 import GlobalStyle from '@/styles/GlobalStyle';
 import { useEffect, useState } from 'react';
 import storage from '@/lib/storage';
 import { useThemeEffect } from '@/lib/hooks/useThemeEffect';
 import useDarkMode from '@/states/darkMode';
-import nookies, { parseCookies } from 'nookies';
 import { QueryClient } from '@tanstack/query-core';
 import { Hydrate, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';

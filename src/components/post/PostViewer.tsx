@@ -9,9 +9,7 @@ import TagCard from '@/components/system/TagCard';
 import useIsTablet from '@/lib/hooks/useIsTablet';
 import { media } from '@/lib/media';
 import { markdownBodyStyle } from '@/styles/EditorStyle';
-
-import 'prismjs/themes/prism.css';
-import { marked } from 'marked';
+import Markdown from '@/components/system/Markdown';
 
 function PostViewer() {
   const { query } = useRouter();
@@ -20,9 +18,6 @@ function PostViewer() {
     queryFn: () => getPostByTitle(query.post_title as string),
   });
   const [isTablet, mediaInit] = useIsTablet();
-
-  const html = marked(post?.body as string);
-
   return (
     <Block>
       <Header>
@@ -41,7 +36,10 @@ function PostViewer() {
       <Content>
         <Body>
           <Thumbnail src={post?.thumbnail} alt={post?.title} />
-          <BodyContent dangerouslySetInnerHTML={{ __html: html }} />
+          {/*<BodyContent dangerouslySetInnerHTML={{ __html: markdownToHtml }} />*/}
+          <BodyContent>
+            <Markdown markdownText={post?.body.toString() || ''} />
+          </BodyContent>
         </Body>
         {mediaInit && !isTablet && <Table>456</Table>}
       </Content>
@@ -120,7 +118,7 @@ const BodyContent = styled.div`
 const Table = styled.div`
   position: sticky;
   width: 240px;
-  top: 76px;
+  top: 92px;
 `;
 
 const Thumbnail = styled.img`
