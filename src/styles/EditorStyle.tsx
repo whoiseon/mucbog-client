@@ -106,9 +106,13 @@ export const EditorStyle = css`
   }
 
   .toastui-editor-md-container {
-    . .toastui-editor-md-preview {
-      padding: 0 24px;
+    .toastui-editor-md-preview {
+      padding: 16px 24px;
       height: calc(100% - 80px);
+
+      .toastui-editor-contents {
+        padding-top: 0;
+      }
     }
   }
 
@@ -210,7 +214,7 @@ export const markdownBodyStyle = css`
     margin-right: 0;
   }
   hr {
-    border: 0.5px solid ${themedPalette.border4};
+    border: 0.5px solid ${themedPalette.border3};
   }
   a {
     color: ${themedPalette.primary2};

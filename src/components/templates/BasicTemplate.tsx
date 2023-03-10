@@ -18,16 +18,14 @@ function BasicTemplate({
 }: Props) {
   return (
     <>
-      <Content className={className}>
-        {desktopHeaderVisible && header}
-        {children}
-      </Content>
+      {desktopHeaderVisible && header}
+      <Content className={className}>{children}</Content>
     </>
   );
 }
 
 const Content = styled.main`
-  height: 100%;
+  padding-bottom: 64px;
 `;
 
 const HeaderText = styled.span`

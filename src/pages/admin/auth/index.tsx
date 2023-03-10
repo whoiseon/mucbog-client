@@ -3,6 +3,7 @@ import BasicTemplate from '@/components/templates/BasicTemplate';
 import AuthForm from '@/components/auth/AuthForm';
 import { GetServerSideProps } from 'next';
 import styled from '@emotion/styled';
+import FullHeightPage from '@/components/system/FullHeightPage';
 
 function AuthPage() {
   return (
@@ -13,11 +14,11 @@ function AuthPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BasicTemplate desktopHeaderVisible={false}>
+      <FullHeightPage>
         <Content>
           <AuthForm />
         </Content>
-      </BasicTemplate>
+      </FullHeightPage>
     </>
   );
 }

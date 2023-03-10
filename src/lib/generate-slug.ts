@@ -7,3 +7,8 @@ export default function generateSlug(title: string) {
   const result = removeSpecialCharacters.replace(/\s/gi, '-');
   return result;
 }
+
+export function removeSlug(title: string) {
+  const result = title.replace(/-/g, ' ');
+  return result;
+}
