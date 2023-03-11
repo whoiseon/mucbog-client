@@ -75,6 +75,11 @@ const StyledLink = styled(Link)`
     flex-direction: row;
     align-items: center;
     gap: 40px;
+    &:hover {
+      img {
+        transform: scale(1.03);
+      }
+    }
   }
 `;
 
@@ -86,6 +91,7 @@ const Thumbnail = styled.img`
   box-shadow: 0 0 3 rgb(0 0 0 / 15%);
   display: block;
   margin-bottom: 16px;
+  transition: all 0.125s ease-in-out;
   ${media.tablet} {
     width: 240px;
     height: 200px;

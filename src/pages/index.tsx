@@ -38,6 +38,7 @@ const Content = styled.div`
   flex: 1;
   padding-left: 16px;
   padding-right: 16px;
+  padding-bottom: 48px;
   margin-left: auto;
   margin-right: auto;
 `;

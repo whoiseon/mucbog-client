@@ -26,6 +26,34 @@ function PostViewer() {
   const [headings, setHeadings] = useState<any>([]);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
+  const tableOfContentLoader = () => {
+    return (
+      mediaInit &&
+      !isTablet && (
+        <Table>
+          {headings.map((header: any, index: number) => {
+            return (
+              <TableHeader key={header.title} tag={header.tag}>
+                <Link
+                  href={`#${header.id}`}
+                  className={activeIndex === index ? 'active' : ''}
+                  onClick={() => {
+                    const el = document.getElementById(header.id);
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  {header.title}
+                </Link>
+              </TableHeader>
+            );
+          })}
+        </Table>
+      )
+    );
+  };
+
   useEffect(() => {
     const headerTags = bodyRef.current?.querySelectorAll(
       'h1, h2, h3, h4, h5, h6',
@@ -85,30 +113,13 @@ function PostViewer() {
           <Thumbnail src={post?.thumbnail} alt={post?.title} />
           <BodyContent ref={bodyRef}>
             <Markdown markdownText={post?.body.toString() || ''} />
+            <UpdatedAt>
+              <p>마지막 업데이트</p>
+              <p>{moment(post?.updatedAt).format('YYYY년 M월 DD일')}</p>
+            </UpdatedAt>
           </BodyContent>
         </Body>
-        {mediaInit && !isTablet && (
-          <Table>
-            {headings.map((header: any, index: number) => {
-              return (
-                <TableHeader key={header.title} tag={header.tag}>
-                  <Link
-                    href={`#${header.id}`}
-                    className={activeIndex === index ? 'active' : ''}
-                    onClick={() => {
-                      const el = document.getElementById(header.id);
-                      if (el) {
-                        el.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  >
-                    {header.title}
-                  </Link>
-                </TableHeader>
-              );
-            })}
-          </Table>
-        )}
+        {tableOfContentLoader()}
       </Content>
     </Block>
   );
@@ -226,6 +237,21 @@ const Thumbnail = styled.img`
   object-fit: contain;
   display: block;
   border-radius: 16px;
+`;
+
+const UpdatedAt = styled.div`
+  margin-top: 80px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid ${themedPalette.border4};
+  p {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    color: ${themedPalette.text3};
+    &:nth-of-type(1) {
+      color: ${themedPalette.primary2};
+    }
+  }
 `;
 
 export default PostViewer;

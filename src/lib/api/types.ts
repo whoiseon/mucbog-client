@@ -28,6 +28,7 @@ export interface Post {
   description: string;
   body: string;
   createdAt: Date;
+  updatedAt: Date;
   thumbnail?: string;
   isPrivate?: boolean;
   category: Category;
