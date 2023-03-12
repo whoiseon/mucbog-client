@@ -5,14 +5,14 @@ import { Post } from '@/lib/api/types';
 import styled from '@emotion/styled';
 import moment from 'moment';
 import { themedPalette } from '@/styles/palette';
-import TagCard from '@/components/system/TagCard';
 import useIsTablet from '@/lib/hooks/useIsTablet';
 import { media } from '@/lib/media';
 import { markdownBodyStyle } from '@/styles/EditorStyle';
 import Markdown from '@/components/system/Markdown';
-import generateSlug, { removeSlug } from '@/lib/generate-slug';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import postState from '@/states/post';
+import PostHead from '@/components/post/PostHead';
 
 function PostViewer() {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -25,6 +25,8 @@ function PostViewer() {
   const [isTablet, mediaInit] = useIsTablet();
   const [headings, setHeadings] = useState<any>([]);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+
+  const { setPostId, id: nowPostId } = postState();
 
   const tableOfContentLoader = () => {
     return (
@@ -53,6 +55,12 @@ function PostViewer() {
       )
     );
   };
+
+  useEffect(() => {
+    if (!post) return;
+    setPostId(post?.id);
+    console.log(nowPostId);
+  }, [post, setPostId, nowPostId]);
 
   useEffect(() => {
     const headerTags = bodyRef.current?.querySelectorAll(
@@ -95,19 +103,11 @@ function PostViewer() {
 
   return (
     <Block>
-      <Header>
-        <h1>{post?.title}</h1>
-        <Info>
-          <span className="username">MUCBOG</span>
-          <Separator>·</Separator>
-          <span>{moment(post?.createdAt).format('YYYY년 M월 DD일')}</span>
-          <TagList>
-            {post?.tags.map((tag) => (
-              <TagCard key={tag.id} size="medium" name={tag.name} />
-            ))}
-          </TagList>
-        </Info>
-      </Header>
+      <PostHead
+        title={post?.title}
+        createdAt={post?.createdAt}
+        tags={post?.tags}
+      />
       <Content>
         <Body>
           <Thumbnail src={post?.thumbnail} alt={post?.title} />
@@ -135,39 +135,6 @@ const Block = styled.div`
   ${media.mobile} {
     margin-top: 88px;
   }
-`;
-
-const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  h1 {
-    font-size: 36px;
-    margin: 0 0 32px;
-  }
-  .username {
-    font-size: 16px;
-    font-weight: 700;
-    color: ${themedPalette.text1};
-  }
-  span {
-    color: ${themedPalette.text3};
-    font-weight: 400;
-  }
-`;
-
-const Info = styled.div``;
-
-const Separator = styled.span`
-  margin: 0 8px;
-`;
-
-const TagList = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  gap: 16px;
 `;
 
 const Content = styled.div`
