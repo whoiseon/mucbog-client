@@ -12,11 +12,7 @@ interface Props extends TagProps {
 }
 
 function TagCard({ name, size = 'small' }: Props) {
-  return (
-    <StyledTag href={`/tag?=${name}`} size={size}>
-      {name}
-    </StyledTag>
-  );
+  return <StyledTag size={size}>{name}</StyledTag>;
 }
 
 const sizeStyles = {
@@ -43,7 +39,7 @@ const SharedStyles = (props: TagProps) => css`
   border-radius: 4px;
 `;
 
-const StyledTag = styled(Link)<TagProps>`
+const StyledTag = styled.div<TagProps>`
   ${(props) => SharedStyles(props)}
 `;
 

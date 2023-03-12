@@ -13,6 +13,8 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import postState from '@/states/post';
 import PostHead from '@/components/post/PostHead';
+import LinkedPosts from '@/components/post/LinkedPosts';
+import PostProfile from '@/components/post/PostProfile';
 
 function PostViewer() {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -113,11 +115,16 @@ function PostViewer() {
           <Thumbnail src={post?.thumbnail} alt={post?.title} />
           <BodyContent ref={bodyRef}>
             <Markdown markdownText={post?.body.toString() || ''} />
-            <UpdatedAt>
-              <p>마지막 업데이트</p>
-              <p>{moment(post?.updatedAt).format('YYYY년 M월 DD일')}</p>
-            </UpdatedAt>
           </BodyContent>
+          <UpdatedAt>
+            <p>마지막 업데이트</p>
+            <p>{moment(post?.updatedAt).format('YYYY년 M월 DD일')}</p>
+          </UpdatedAt>
+          <PostProfile />
+          <LinkedPosts
+            prevPost={post?.prevPost?.title}
+            nextPost={post?.nextPost?.title}
+          />
         </Body>
         {tableOfContentLoader()}
       </Content>
@@ -208,8 +215,6 @@ const Thumbnail = styled.img`
 
 const UpdatedAt = styled.div`
   margin-top: 80px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid ${themedPalette.border4};
   p {
     font-weight: 600;
     font-size: 16px;

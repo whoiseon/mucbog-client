@@ -34,4 +34,6 @@ export interface Post {
   category: Category;
   user: User;
   tags: PostTag[];
+  prevPost?: Post | null;
+  nextPost?: Post | null;
 }

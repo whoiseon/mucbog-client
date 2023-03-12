@@ -30,17 +30,8 @@ function BasicTemplate({
 const Content = styled.main`
   padding-bottom: 16px;
   ${media.mobile} {
-    padding-bottom: 64px;
+    padding-bottom: 128px;
   }
-`;
-
-const HeaderText = styled.span`
-  width: 100%;
-  display: inline-block;
-  font-size: 24px;
-  font-weight: 700;
-  padding: 20px 0;
-  margin: 48px 0 32px;
 `;
 
 export default BasicTemplate;
