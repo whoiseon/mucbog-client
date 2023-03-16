@@ -15,6 +15,8 @@ import postState from '@/states/post';
 import PostHead from '@/components/post/PostHead';
 import LinkedPosts from '@/components/post/LinkedPosts';
 import PostProfile from '@/components/post/PostProfile';
+import PostComment from '@/components/post/PostComment';
+import PostUpdatedAt from '@/components/post/PostUpdatedAt';
 
 function PostViewer() {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -116,15 +118,13 @@ function PostViewer() {
           <BodyContent ref={bodyRef}>
             <Markdown markdownText={post?.body.toString() || ''} />
           </BodyContent>
-          <UpdatedAt>
-            <p>마지막 업데이트</p>
-            <p>{moment(post?.updatedAt).format('YYYY년 M월 DD일')}</p>
-          </UpdatedAt>
+          <PostUpdatedAt updatedAt={post?.updatedAt} />
           <PostProfile />
           <LinkedPosts
             prevPost={post?.prevPost?.title}
             nextPost={post?.nextPost?.title}
           />
+          <PostComment />
         </Body>
         {tableOfContentLoader()}
       </Content>
@@ -211,19 +211,6 @@ const Thumbnail = styled.img`
   object-fit: contain;
   display: block;
   border-radius: 16px;
-`;
-
-const UpdatedAt = styled.div`
-  margin-top: 80px;
-  p {
-    font-weight: 600;
-    font-size: 16px;
-    margin: 0;
-    color: ${themedPalette.text3};
-    &:nth-of-type(1) {
-      color: ${themedPalette.primary2};
-    }
-  }
 `;
 
 export default PostViewer;

@@ -28,7 +28,7 @@ function BasicTemplate({
 }
 
 const Content = styled.main`
-  padding-bottom: 16px;
+  padding-bottom: 48px;
   ${media.mobile} {
     padding-bottom: 128px;
   }

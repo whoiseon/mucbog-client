@@ -26,8 +26,8 @@ const Block = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 128px;
-  padding-bottom: 48px;
+  margin-top: 80px;
+  padding-bottom: 32px;
   border-bottom: 1px solid ${themedPalette.border4};
   ${media.tablet} {
     flex-direction: row;
