@@ -6,27 +6,35 @@ import HomeTag from '@/components/home/HomeTag';
 import { media } from '@/lib/media';
 import useIsTablet from '@/lib/hooks/useIsTablet';
 
-function HomeTagList() {
+interface Props {
+  totalPost?: number;
+}
+
+function HomeTagList({ totalPost }: Props) {
   const [isTablet, mediaLoading] = useIsTablet();
 
-  const { data: tagData } = useQuery<Tag[]>({
+  const { data: tagData, isLoading } = useQuery<Tag[]>({
     queryKey: ['tags'],
     queryFn: getAllTags,
   });
 
-  return (
+  return !isLoading ? (
     <List>
       {mediaLoading && (!isTablet ? <h3>태그</h3> : undefined)}
+      <HomeTag totalPost={totalPost} />
       {tagData?.map((t) => (
         <HomeTag key={t.tag_id} tag={t} />
       ))}
     </List>
+  ) : (
+    <List>로딩중..</List>
   );
 }
 
 const List = styled.aside`
   display: flex;
   align-items: center;
+  margin-left: -8px;
   overflow-x: auto;
   scroll-behavior: smooth;
   -ms-overflow-style: none;
@@ -37,6 +45,7 @@ const List = styled.aside`
   ${media.tablet} {
     position: sticky;
     top: 76px;
+    margin-left: 0;
     flex-direction: column;
     align-items: inherit;
     width: 200px;

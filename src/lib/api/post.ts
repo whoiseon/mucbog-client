@@ -12,13 +12,15 @@ interface PostRequestParams {
   categoryId: number;
 }
 
-export const getDevRecentPosts = async () => {
-  const response = await axios.get('/api/posts/dev/recent');
+export const getDevRecentPosts = async (page: number) => {
+  const response = await axios.get(`/api/posts/dev/recent?page=${page || 1}`);
   return response.data;
 };
 
-export const getProjectRecentPosts = async () => {
-  const response = await axios.get('/api/posts/project/recent');
+export const getProjectRecentPosts = async (page: number) => {
+  const response = await axios.get(
+    `/api/posts/project/recent?=page${page || 1}`,
+  );
   return response.data;
 };
 

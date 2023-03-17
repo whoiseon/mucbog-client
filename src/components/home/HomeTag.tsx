@@ -5,42 +5,62 @@ import { themedPalette } from '@/styles/palette';
 import { media } from '@/lib/media';
 import { useRouter } from 'next/router';
 import React from 'react';
+import useIsTablet from '@/lib/hooks/useIsTablet';
+import { css } from '@emotion/react';
 
 interface Props {
-  tag: Tag;
+  tag?: Tag;
+  totalPost?: number;
 }
 
-function HomeTag({ tag }: Props) {
-  const { query } = useRouter();
-  const isActive = query.tag === tag.tag_name;
+function HomeTag({ tag, totalPost }: Props) {
+  const router = useRouter();
+  const [isTablet, mediaLoading] = useIsTablet();
+  const isActive = router.query.tag === tag?.tag_name;
   return (
-    <StyledLink
-      style={
-        isActive
-          ? {
-              backgroundColor: themedPalette.bg_element3,
-              color: themedPalette.primary2,
-            }
-          : {}
-      }
-      href={`?tag=${tag.tag_name}`}
-    >
-      {tag.tag_name}
-      <PostCount>({tag.post_count})</PostCount>
-    </StyledLink>
+    <Block isActive={isActive} isTablet={isTablet}>
+      {totalPost ? (
+        <>
+          <StyledLink href="/">전체보기</StyledLink>
+        </>
+      ) : (
+        <>
+          <StyledLink href={`/tag/${tag?.tag_name}`}>
+            {tag?.tag_name}
+          </StyledLink>
+        </>
+      )}
+    </Block>
   );
 }
 
-const StyledLink = styled(Link)`
-  padding: 6px 16px;
+const Block = styled.div<{ isActive: boolean; isTablet: boolean }>`
+  padding: 10px 12px;
   border-radius: 6px;
-  &:hover {
-    color: ${themedPalette.primary2};
-    background-color: ${themedPalette.bg_element3};
+  white-space: nowrap;
+  ${media.tablet} {
+    padding: 4px 0;
   }
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      background-color: ${themedPalette.bg_element3};
+      a {
+        font-weight: 700;
+        color: ${themedPalette.primary2};
+      }
+    `}
+  ${(props) => !props.isTablet && `background: none`}
+`;
+
+const StyledLink = styled(Link)`
+  border-radius: 6px;
   ${media.tablet} {
     width: 100%;
-    margin-left: -16px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 

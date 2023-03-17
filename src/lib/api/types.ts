@@ -6,6 +6,13 @@ export interface User {
   hashedRefreshToken?: string;
 }
 
+export interface PostBody {
+  posts: Post[];
+  totalPost: number;
+  currentPage: number;
+  limit: number;
+}
+
 export interface Tag {
   tag_id: number;
   tag_name: string;

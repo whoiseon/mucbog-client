@@ -14,7 +14,7 @@ function PostComment() {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="bottom"
-        theme="https://mucbog.s3.ap-northeast-2.amazonaws.com/styles.css"
+        theme="dark"
         lang="ko"
         loading="lazy"
       />

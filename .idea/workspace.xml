@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
-      <change afterPath="$PROJECT_DIR$/src/components/post/PostUpdatedAt.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/post/TableOfContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/system/Pagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/tag/[tag].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/HomeTagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeTagList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/LinkCardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/LinkCardList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/post/PostComment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostComment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/post/PostProfile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostProfile.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/post/PostViewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostViewer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[post_title]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category]/[post_title].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +56,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/[category]" />
       <recent name="$PROJECT_DIR$/src/assets/vectors" />
       <recent name="$PROJECT_DIR$/src/components/write" />
       <recent name="$PROJECT_DIR$/src/lib/hooks" />
@@ -68,7 +77,7 @@
       <workItem from="1677905697188" duration="12119000" />
       <workItem from="1677995645955" duration="9535000" />
       <workItem from="1678077061438" duration="19694000" />
-      <workItem from="1678162810004" duration="83231000" />
+      <workItem from="1678162810004" duration="92948000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>

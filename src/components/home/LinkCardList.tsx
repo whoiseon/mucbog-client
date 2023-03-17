@@ -1,23 +1,24 @@
-import { useQuery } from '@tanstack/react-query';
-import { getDevRecentPosts, getPostsByTag } from '@/lib/api/post';
 import styled from '@emotion/styled';
 import LinkCard from '@/components/home/LinkCard';
-import { Post } from '@/lib/api/types';
-import { useRouter } from 'next/router';
+import { PostBody } from '@/lib/api/types';
+import Pagination from '@/components/system/Pagination';
 
-function LinkCardList() {
-  const router = useRouter();
-  const { data: postData } = useQuery<Post[]>({
-    queryKey: router.query.tag ? ['posts', router.query.tag] : ['posts'],
-    queryFn: router.query.tag
-      ? () => getPostsByTag(router.query.tag as string)
-      : getDevRecentPosts,
-  });
+interface Props {
+  postData?: PostBody;
+  totalPage?: number;
+  page: number;
+}
+
+function LinkCardList({ postData, totalPage, page }: Props) {
+  const isNoPage = postData && postData?.totalPost <= postData?.limit;
   return (
     <List>
-      {postData?.map((post) => (
+      {postData?.posts.map((post) => (
         <LinkCard key={post.id} post={post} />
       ))}
+      {!isNoPage && (
+        <Pagination totalPage={totalPage} limit={postData?.limit} page={page} />
+      )}
     </List>
   );
 }

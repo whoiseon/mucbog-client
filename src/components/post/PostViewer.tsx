@@ -17,6 +17,7 @@ import LinkedPosts from '@/components/post/LinkedPosts';
 import PostProfile from '@/components/post/PostProfile';
 import PostComment from '@/components/post/PostComment';
 import PostUpdatedAt from '@/components/post/PostUpdatedAt';
+import TableOfContent from '@/components/post/TableOfContent';
 
 function PostViewer() {
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -32,45 +33,15 @@ function PostViewer() {
 
   const { setPostId, id: nowPostId } = postState();
 
-  const tableOfContentLoader = () => {
-    return (
-      mediaInit &&
-      !isTablet && (
-        <Table>
-          {headings.map((header: any, index: number) => {
-            return (
-              <TableHeader key={header.title} tag={header.tag}>
-                <Link
-                  href={`#${header.id}`}
-                  className={activeIndex === index ? 'active' : ''}
-                  onClick={() => {
-                    const el = document.getElementById(header.id);
-                    if (el) {
-                      el.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }}
-                >
-                  {header.title}
-                </Link>
-              </TableHeader>
-            );
-          })}
-        </Table>
-      )
-    );
-  };
-
   useEffect(() => {
     if (!post) return;
     setPostId(post?.id);
-    console.log(nowPostId);
   }, [post, setPostId, nowPostId]);
 
   useEffect(() => {
     const headerTags = bodyRef.current?.querySelectorAll(
       'h1, h2, h3, h4, h5, h6',
     );
-    if (!bodyRef.current || headings.length > 0) return;
 
     const newHeaders = Array.from(headerTags || []).map((h) => ({
       tag: h.tagName,
@@ -78,7 +49,7 @@ function PostViewer() {
       id: h.id,
     }));
     setHeadings(newHeaders);
-  }, []);
+  }, [query.post_title]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -126,7 +97,9 @@ function PostViewer() {
           />
           <PostComment />
         </Body>
-        {tableOfContentLoader()}
+        {mediaInit && !isTablet && (
+          <TableOfContent headings={headings} activeIndex={activeIndex} />
+        )}
       </Content>
     </Block>
   );
@@ -170,37 +143,6 @@ const BodyContent = styled.div`
     font-size: 18px;
   }
   ${markdownBodyStyle};
-`;
-
-const Table = styled.div`
-  position: sticky;
-  top: 112px;
-  display: flex;
-  flex-direction: column;
-  width: 240px;
-  margin-left: 72px;
-`;
-
-const TableHeader = styled.div<{ tag: string }>`
-  font-size: 14px;
-  ${(props) => props.tag === 'H2' && 'margin-left: 12px;'};
-  &:not(:first-of-type) {
-    margin-top: 8px;
-  }
-  a {
-    display: inline-flex;
-    line-height: 1.5;
-    cursor: pointer;
-    transition: all 0.125s ease-in-out;
-    color: ${themedPalette.text3};
-    &.active {
-      color: ${themedPalette.primary2};
-      transform: scale(1.05);
-    }
-    &:hover {
-      color: ${themedPalette.text1};
-    }
-  }
 `;
 
 const Thumbnail = styled.img`

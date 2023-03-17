@@ -30,7 +30,7 @@ function BasicTemplate({
 const Content = styled.main`
   padding-bottom: 48px;
   ${media.mobile} {
-    padding-bottom: 128px;
+    padding-bottom: 64px;
   }
 `;
 

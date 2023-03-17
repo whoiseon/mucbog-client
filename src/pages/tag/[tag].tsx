@@ -6,13 +6,13 @@ import { getMyAccount } from '@/lib/api/auth';
 import axios from 'axios';
 import styled from '@emotion/styled';
 import HeaderText from '@/components/system/HeaderText';
-import { getDevRecentPosts, getPostsByTag } from '@/lib/api/post';
+import { getPostsByTag } from '@/lib/api/post';
 import HomeContent from '@/components/home/HomeContent';
-import { getAllTags } from '@/lib/api/tag';
 import { useRouter } from 'next/router';
 
 export default function Home() {
   const router = useRouter();
+  console.log(router);
   return (
     <>
       <Head>
@@ -50,8 +50,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery(['me'], getMyAccount);
-  await queryClient.prefetchQuery(['posts'], () =>
-    getDevRecentPosts(Number(query.page)),
+  await queryClient.prefetchQuery(['posts', ctx.query['tag']], () =>
+    getPostsByTag(ctx.query['tag'] as string),
   );
 
   return {
