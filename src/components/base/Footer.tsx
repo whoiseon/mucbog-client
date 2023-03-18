@@ -29,7 +29,10 @@ function Footer() {
 
 const StyledFooter = styled.footer`
   width: 100%;
-  height: 120px;
+  height: 160px;
+  ${media.tablet} {
+    height: 120px;
+  }
 `;
 
 const Content = styled.div`

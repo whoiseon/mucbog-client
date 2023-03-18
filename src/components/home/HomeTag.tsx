@@ -64,9 +64,4 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const PostCount = styled.span`
-  color: ${themedPalette.text3};
-  margin-left: 4px;
-`;
-
 export default HomeTag;

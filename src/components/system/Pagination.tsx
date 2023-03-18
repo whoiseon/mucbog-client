@@ -61,7 +61,9 @@ function Pagination({ totalPage, limit, page }: Props) {
   return (
     <StyledPagination>
       {!(page === 1) && (
-        <StyledLink href={`${asPath}?page=${page - 1}`}>Prev</StyledLink>
+        <StyledLink className="prev" href={`${asPath}?page=${page - 1}`}>
+          이전
+        </StyledLink>
       )}
       {currentPageArray?.map((i) => {
         return (
@@ -83,7 +85,9 @@ function Pagination({ totalPage, limit, page }: Props) {
         );
       })}
       {!(page === totalPage) && (
-        <StyledLink href={`${asPath}?page=${page + 1}`}>Next</StyledLink>
+        <StyledLink className="next" href={`${asPath}?page=${page + 1}`}>
+          다음
+        </StyledLink>
       )}
     </StyledPagination>
   );
@@ -93,21 +97,22 @@ const StyledPagination = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  gap: 8px;
   padding: 16px 0;
 `;
 
 const StyledLink = styled(Link)<{ current?: boolean }>`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
   padding: 8px;
-  width: 36px;
+  min-width: 36px;
   height: 36px;
   font-size: 18px;
+  white-space: nowrap;
   &:hover {
     background-color: ${themedPalette.bg_element3};
+    text-decoration: underline;
   }
 `;
 
