@@ -18,7 +18,7 @@ const StyledText = styled.span`
   margin: 18px 0;
   ${media.mobile} {
     margin: 48px 0 32px;
-    font-size: 32px;
+    font-size: 28px;
   }
 `;
 

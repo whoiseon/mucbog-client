@@ -10,6 +10,7 @@ interface Props {
   headerLeft?: React.ReactNode;
   desktopHeaderVisible?: boolean;
   header?: React.ReactNode;
+  layout?: 'full' | 'normal';
 }
 
 function BasicTemplate({
@@ -17,6 +18,7 @@ function BasicTemplate({
   children,
   className,
   desktopHeaderVisible = true,
+  layout = 'normal',
 }: Props) {
   return (
     <>

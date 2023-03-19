@@ -75,6 +75,7 @@ function WriteFinalStep({
           id="thumbnail-image"
           thumbnail={thumbnail}
           onChange={onChangeThumbnail}
+          accept="image/*"
         />
         <StyledTextArea
           value={value}

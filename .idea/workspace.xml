@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/base/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/HomeTag.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/system/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/Pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/system/HeaderText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/HeaderText.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,9 @@
       <workItem from="1677995645955" duration="9535000" />
       <workItem from="1678077061438" duration="19694000" />
       <workItem from="1678162810004" duration="93048000" />
-      <workItem from="1679145735213" duration="690000" />
+      <workItem from="1679145735213" duration="750000" />
+      <workItem from="1679146500557" duration="8000" />
+      <workItem from="1679202705112" duration="800000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>

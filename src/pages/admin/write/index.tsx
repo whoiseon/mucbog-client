@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import WriteForm from '@/components/write/WriteForm';
 import { GetServerSideProps } from 'next';
+import FullHeightPage from '@/components/system/FullHeightPage';
 
 function WritePage() {
   return (
@@ -11,7 +12,9 @@ function WritePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <WriteForm />
+      <FullHeightPage>
+        <WriteForm />
+      </FullHeightPage>
     </>
   );
 }
