@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
+      <change afterPath="$PROJECT_DIR$/src/lib/hooks/useDeletePost.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/system/HeaderText.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/system/HeaderText.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/templates/BasicTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteFinalStep.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/write/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/post/PostComment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostComment.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/post/PostHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostHead.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/post/PostViewer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostViewer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/states/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/states/post.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +71,8 @@
       <workItem from="1678162810004" duration="93048000" />
       <workItem from="1679145735213" duration="750000" />
       <workItem from="1679146500557" duration="8000" />
-      <workItem from="1679202705112" duration="800000" />
+      <workItem from="1679202705112" duration="920000" />
+      <workItem from="1679286065214" duration="3580000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>

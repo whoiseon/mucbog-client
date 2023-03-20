@@ -10,7 +10,6 @@ import { media } from '@/lib/media';
 import { markdownBodyStyle } from '@/styles/EditorStyle';
 import Markdown from '@/components/system/Markdown';
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import postState from '@/states/post';
 import PostHead from '@/components/post/PostHead';
 import LinkedPosts from '@/components/post/LinkedPosts';

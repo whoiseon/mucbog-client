@@ -24,9 +24,6 @@ function PostComment() {
 
 const Block = styled.div`
   margin-top: 48px;
-  .color-text-secondary text-sm {
-    display: none;
-  }
 `;
 
 export default PostComment;

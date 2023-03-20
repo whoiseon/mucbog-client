@@ -2,8 +2,11 @@ import { PostTag } from '@/lib/api/types';
 import styled from '@emotion/styled';
 import { themedPalette } from '@/styles/palette';
 import moment from 'moment/moment';
-import TagCard from '@/components/system/TagCard';
 import PostTags from '@/components/post/PostTags';
+import useMyAccount from '@/lib/hooks/useMyAccount';
+import postState from '@/states/post';
+import useDeletePost from '@/lib/hooks/useDeletePost';
+import { useRouter } from 'next/router';
 
 interface Props {
   title?: string;
@@ -12,15 +15,38 @@ interface Props {
 }
 
 function PostHead({ title, createdAt, tags }: Props) {
+  const router = useRouter();
+  const { data: myData } = useMyAccount();
+  const { id: postId } = postState();
+
+  const mutateDeletePost = useDeletePost(
+    postId as number,
+    router.query.category,
+    router.query.post_title,
+  );
+
+  const onDelete = () => {
+    mutateDeletePost();
+  };
+
   return (
     <Block>
       <h1>{title}</h1>
       <Info>
-        <span className="username">MUCBOG</span>
-        <Separator>·</Separator>
-        <span>{moment(createdAt).format('YYYY년 M월 DD일')}</span>
-        <PostTags tags={tags} />
+        <div className="left">
+          <span className="username">MUCBOG</span>
+          <Separator>·</Separator>
+          <span>{moment(createdAt).format('YYYY년 M월 DD일')}</span>
+        </div>
+        {myData && (
+          <div className="right">
+            <button type="button" onClick={onDelete}>
+              삭제
+            </button>
+          </div>
+        )}
       </Info>
+      <PostTags tags={tags} />
     </Block>
   );
 }
@@ -44,18 +70,26 @@ const Block = styled.div`
   }
 `;
 
-const Info = styled.div``;
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .right {
+    min-width: 240px;
+
+    button {
+      font-size: 16px;
+      background: none;
+      border: none;
+      color: ${themedPalette.text3};
+      cursor: pointer;
+    }
+  }
+`;
 
 const Separator = styled.span`
   margin: 0 8px;
-`;
-
-const TagList = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  gap: 16px;
 `;
 
 export default PostHead;

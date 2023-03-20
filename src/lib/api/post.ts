@@ -43,3 +43,8 @@ export const createPosts = async (params: PostRequestParams) => {
   const response = await axios.post('/api/posts', params);
   return response.data;
 };
+
+export const deletePost = async (id: number) => {
+  const response = await axios.delete(`/api/posts/${id}`);
+  return response.data;
+};
