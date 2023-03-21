@@ -195,7 +195,8 @@ export const markdownBodyStyle = css`
   h6 {
     border-bottom: none;
     color: ${themedPalette.text1};
-    padding: 40px 0 16px;
+    margin: 40px 0 16px;
+    padding: 0;
   }
 
   code {

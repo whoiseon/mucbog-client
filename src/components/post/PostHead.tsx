@@ -38,13 +38,18 @@ function PostHead({ title, createdAt, tags }: Props) {
           <Separator>·</Separator>
           <span>{moment(createdAt).format('YYYY년 M월 DD일')}</span>
         </div>
-        {myData && (
-          <div className="right">
-            <button type="button" onClick={onDelete}>
-              삭제
-            </button>
-          </div>
-        )}
+        <div className="right">
+          {myData && (
+            <PostButtons>
+              <button className="delete" type="button" onClick={onDelete}>
+                삭제하기
+              </button>
+              <button className="update" type="button">
+                수정하기
+              </button>
+            </PostButtons>
+          )}
+        </div>
       </Info>
       <PostTags tags={tags} />
     </Block>
@@ -74,16 +79,40 @@ const Info = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  .left {
+  }
   .right {
     min-width: 240px;
+  }
+`;
 
-    button {
-      font-size: 16px;
-      background: none;
-      border: none;
-      color: ${themedPalette.text3};
-      cursor: pointer;
+const PostButtons = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  button {
+    font-size: 14px;
+    font-weight: 700;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    padding: 4px 12px;
+    cursor: pointer;
+    &.delete {
+      color: ${themedPalette.destructive2};
+      border: 1.6px solid ${themedPalette.destructive2};
+      &:hover {
+        background-color: ${themedPalette.destructive2};
+        color: ${themedPalette.button_text};
+      }
+    }
+    &.update {
+      color: ${themedPalette.primary2};
+      border: 1.6px solid ${themedPalette.primary2};
+      &:hover {
+        background-color: ${themedPalette.primary2};
+        color: ${themedPalette.button_text};
+      }
     }
   }
 `;

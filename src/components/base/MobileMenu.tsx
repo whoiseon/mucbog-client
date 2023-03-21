@@ -5,8 +5,8 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { getMyAccount, logout } from '@/lib/api/auth';
 import Button from '@/components/system/Button';
 import { useCallback } from 'react';
-import {keyframes} from "@emotion/react";
-import useMyAccount from "@/lib/hooks/useMyAccount";
+import { keyframes } from '@emotion/react';
+import useMyAccount from '@/lib/hooks/useMyAccount';
 
 const menuItemsMap = [
   { name: '개발', href: '/' },
@@ -77,6 +77,7 @@ const Block = styled.nav`
   display: flex;
   flex-direction: column;
   animation: ${MenuShowAnimation} 0.3s ease-in-out;
+  z-index: 9999;
 `;
 
 const MenuGroup = styled.ul`
