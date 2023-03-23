@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
+      <change afterPath="$PROJECT_DIR$/src/components/system/EmptyPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/base/MobileMenu.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/post/PostHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostHead.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/EditorStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/EditorStyle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +70,7 @@
       <workItem from="1679202705112" duration="920000" />
       <workItem from="1679286065214" duration="3642000" />
       <workItem from="1679336148054" duration="1274000" />
-      <workItem from="1679378979450" duration="2411000" />
+      <workItem from="1679378979450" duration="5018000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>

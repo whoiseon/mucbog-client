@@ -13,10 +13,11 @@ import WriteFinalStep from '@/components/write/WriteFinalStep';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createPosts } from '@/lib/api/post';
 import { useRouter } from 'next/router';
+import EmptyPage from '@/components/system/EmptyPage';
 
 const Editor = dynamic(() => import('@/components/system/TuiEditor'), {
   ssr: false,
-  loading: () => <EditorLoading>Loading...</EditorLoading>,
+  loading: () => <EmptyPage />,
 });
 
 function WriteForm() {
@@ -100,7 +101,7 @@ function WriteForm() {
     setCategoryId(1);
   };
 
-  const { isLoading, mutate } = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ['posts'],
     mutationFn: createPosts,
     onSuccess: () => {
@@ -148,6 +149,9 @@ function WriteForm() {
     }
   };
 
+  useEffect(() => {
+    console.log(Editor);
+  }, [Editor]);
   return (
     <StyledForm onSubmit={onSubmit}>
       {step === 1 && (
@@ -195,11 +199,6 @@ const StyledForm = styled.form`
   width: 100%;
   height: 100%;
   ${EditorStyle}
-`;
-
-const EditorLoading = styled.div`
-  width: 100%;
-  height: calc(100% - 100px);
 `;
 
 export default WriteForm;
