@@ -7,6 +7,7 @@ import useMyAccount from '@/lib/hooks/useMyAccount';
 import postState from '@/states/post';
 import useDeletePost from '@/lib/hooks/useDeletePost';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface Props {
   title?: string;
@@ -28,7 +29,7 @@ function PostHead({ title, createdAt, tags }: Props) {
   const onDelete = () => {
     mutateDeletePost();
   };
-
+  console.log(router.query);
   return (
     <Block>
       <h1>{title}</h1>
@@ -44,9 +45,12 @@ function PostHead({ title, createdAt, tags }: Props) {
               <button className="delete" type="button" onClick={onDelete}>
                 삭제하기
               </button>
-              <button className="update" type="button">
+              <Link
+                className="update"
+                href={`/${router.query.category}/${router.query.post_title}/update`}
+              >
                 수정하기
-              </button>
+              </Link>
             </PostButtons>
           )}
         </div>
@@ -90,7 +94,8 @@ const PostButtons = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  button {
+  button,
+  a {
     font-size: 14px;
     font-weight: 700;
     border: none;

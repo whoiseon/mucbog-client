@@ -11,16 +11,21 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import WriteFinalStep from '@/components/write/WriteFinalStep';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createPosts } from '@/lib/api/post';
+import { createPosts, updatePosts } from '@/lib/api/post';
 import { useRouter } from 'next/router';
 import EmptyPage from '@/components/system/EmptyPage';
+import { Post } from '@/lib/api/types';
 
 const Editor = dynamic(() => import('@/components/system/TuiEditor'), {
   ssr: false,
   loading: () => <EmptyPage />,
 });
 
-function WriteForm() {
+interface Props {
+  post?: Post;
+}
+
+function WriteForm({ post }: Props) {
   const queryClient = useQueryClient();
   const router = useRouter();
   const [step, setStep] = useState<number>(1);
@@ -32,8 +37,8 @@ function WriteForm() {
   const [description, onChangeDescription, setDescription] = useInput('');
   const [thumbnail, setThumbnail] = useState<string>('');
   const [categoryId, setCategoryId] = useState<number>(1);
-
   const [tagValue, setTagValue] = useState<string>('');
+  const isUpdate = !!post;
 
   const goBackStep = () => {
     setStep((prev) => prev - 1);
@@ -101,12 +106,26 @@ function WriteForm() {
     setCategoryId(1);
   };
 
-  const { mutate } = useMutation({
+  // create post mutation
+  const { mutate: createPostMutate } = useMutation({
     mutationKey: ['posts'],
     mutationFn: createPosts,
     onSuccess: () => {
       queryClient.refetchQueries(['posts']);
       router.push('/');
+    },
+    onError: (error: any) => {
+      console.log(error.response);
+    },
+  });
+
+  // update post mutation
+  const { mutate: updatePostMutate } = useMutation({
+    mutationKey: ['posts'],
+    mutationFn: updatePosts,
+    onSuccess: () => {
+      queryClient.refetchQueries(['posts']);
+      router.push(`/${router.query.category}/${router.query.post_title}`);
     },
     onError: (error: any) => {
       console.log(error.response);
@@ -137,21 +156,43 @@ function WriteForm() {
     setStep(2);
 
     if (step === 2) {
+      if (isUpdate) {
+        updatePostMutate({
+          id: post?.id,
+          title,
+          tags,
+          body,
+          description,
+          thumbnail,
+          categoryId,
+        });
+      } else {
+        createPostMutate({
+          title,
+          tags,
+          body,
+          description,
+          thumbnail,
+          categoryId,
+        });
+      }
       clearInput();
-      mutate({
-        title,
-        tags,
-        body,
-        description,
-        thumbnail,
-        categoryId,
-      });
     }
   };
-
   useEffect(() => {
-    console.log(Editor);
-  }, [Editor]);
+    if (!isUpdate && !post) return;
+    if (title && tags.length > 0 && description && thumbnail) return;
+    if (post?.title === title) return;
+    if (post?.body === body) return;
+    if (post.tags.length === tags.length) return;
+    setTitle(post.title);
+    setBody(post.body);
+    post?.tags.map((tag) => setTags((prev) => [...prev, tag.name]));
+    setDescription(post.description);
+    setThumbnail(post.thumbnail as string);
+    setCategoryId(post.category.id);
+  }, [post, isUpdate]);
+
   return (
     <StyledForm onSubmit={onSubmit}>
       {step === 1 && (
@@ -171,7 +212,7 @@ function WriteForm() {
           />
           <Editor
             onChange={onChangeBody}
-            content={body}
+            content={body || post?.body || ''}
             editorRef={editorRef}
           />
         </>

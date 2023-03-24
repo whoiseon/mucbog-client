@@ -16,12 +16,6 @@ function TableOfContent({ headings, activeIndex }: Props) {
             <Link
               href={`#${header.id}`}
               className={activeIndex === index ? 'active' : ''}
-              onClick={() => {
-                const el = document.getElementById(header.id);
-                if (el) {
-                  el.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
             >
               {header.title}
             </Link>

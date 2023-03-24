@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6abefac-970b-4921-899a-6642469e8529" name="Changes" comment="feat: implement write step">
-      <change afterPath="$PROJECT_DIR$/src/components/system/EmptyPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/[category]/[post_title]/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/[category]/[post_title]/update.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/post/PostHead.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/PostHead.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/post/TableOfContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/post/TableOfContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/write/WriteForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[post_title].tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,22 +30,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/usr/local/lib/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/hwang-inseon/Desktop/portfolio/mucbog/mucbog-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/usr/local/lib/node_modules/prettier",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "ts.external.directory.path": "/Users/hwang-inseon/Desktop/portfolio/mucbog/mucbog-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/[category]" />
@@ -70,7 +75,8 @@
       <workItem from="1679202705112" duration="920000" />
       <workItem from="1679286065214" duration="3642000" />
       <workItem from="1679336148054" duration="1274000" />
-      <workItem from="1679378979450" duration="5018000" />
+      <workItem from="1679378979450" duration="5780000" />
+      <workItem from="1679646203521" duration="6525000" />
     </task>
     <task id="LOCAL-00001" summary="feat: editor css customized and tag form">
       <created>1677954407367</created>

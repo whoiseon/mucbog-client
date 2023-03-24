@@ -12,6 +12,10 @@ interface PostRequestParams {
   categoryId: number;
 }
 
+interface PostUpdateParams extends PostRequestParams {
+  id: number;
+}
+
 export const getDevRecentPosts = async (page: number) => {
   const response = await axios.get(`/api/posts/dev/recent?page=${page || 1}`);
   return response.data;
@@ -41,6 +45,11 @@ export const getPostByTitle = async (title: string) => {
 
 export const createPosts = async (params: PostRequestParams) => {
   const response = await axios.post('/api/posts', params);
+  return response.data;
+};
+
+export const updatePosts = async (params: PostUpdateParams) => {
+  const response = await axios.patch(`/api/posts/${params.id}/update`, params);
   return response.data;
 };
 
