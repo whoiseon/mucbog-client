@@ -105,14 +105,14 @@ function PostViewer() {
 }
 
 const Block = styled.div`
-  margin-top: 32px;
+  padding-top: 32px;
   display: flex;
   flex-direction: column;
   & > a {
     display: block;
   }
   ${media.mobile} {
-    margin-top: 88px;
+    padding-top: 88px;
   }
 `;
 

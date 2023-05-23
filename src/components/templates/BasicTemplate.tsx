@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Header from '@/components/base/Header';
 import Footer from '@/components/base/Footer';
 import { media } from '@/lib/media';
+import { themedPalette } from '@/styles/palette';
 
 interface Props {
   children: React.ReactNode;
@@ -31,6 +32,7 @@ function BasicTemplate({
 
 const Content = styled.main`
   padding-bottom: 48px;
+  background-color: ${themedPalette.bg_page};
   ${media.mobile} {
     padding-bottom: 64px;
   }

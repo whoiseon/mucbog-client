@@ -34,7 +34,7 @@ export default function Home() {
 
 const Content = styled.div`
   max-width: 100%;
-  width: 1080px;
+  width: 1280px;
   flex: 1;
   padding-left: 16px;
   padding-right: 16px;

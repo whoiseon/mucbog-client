@@ -3,6 +3,7 @@ type ThemeVariables = {
   bg_element1: string;
   bg_element2: string;
   bg_element3: string;
+  bg_element4: string;
   text1: string;
   text2: string;
   text3: string;
@@ -16,6 +17,7 @@ type ThemeVariables = {
   destructive1: string;
   destructive2: string;
   button_text: string;
+  placeholder: string;
 };
 
 type Theme = 'light' | 'dark';
@@ -24,29 +26,32 @@ type ThemedPalette = Record<VariableKey, string>;
 
 const themeVariableSets: Record<Theme, ThemeVariables> = {
   light: {
-    bg_page: '#FFFFFF',
+    bg_page: '#FAFAFA',
     bg_element1: '#FFFFFF',
-    bg_element2: '#E9ECEF',
-    bg_element3: '#F8F9FA',
-    text1: '#212529',
+    bg_element2: '#F8F9FA',
+    bg_element3: '#E9ECEF',
+    bg_element4: '#E2E2E2',
+    text1: '#121212',
     text2: '#495057',
     text3: '#868E96',
-    text4: '#CDD3E4',
+    text4: '#CDE4CF',
     border1: '#343A40',
-    border2: '#ADB5BD',
-    border3: '#DEE2E6',
-    border4: '#F1F3F5',
-    primary1: '#349EE6',
-    primary2: '#3AB0FF',
-    destructive1: '#DF6868',
-    destructive2: '#F87474',
+    border2: '#A2AAB2',
+    border3: '#C7CBCF',
+    border4: '#D7DBDF',
+    primary1: '#4DB33D',
+    primary2: '#71C264',
+    destructive1: '#FB4E4E',
+    destructive2: '#FC7171',
     button_text: '#FFFFFF',
+    placeholder: '#868E96',
   },
   dark: {
     bg_page: '#121212',
-    bg_element1: '#1E1E1E',
-    bg_element2: '#1E1E1E',
-    bg_element3: '#252525',
+    bg_element1: '#191919',
+    bg_element2: '#252525',
+    bg_element3: '#2F2F2F',
+    bg_element4: '#C2C2C2',
     text1: '#ECECEC',
     text2: '#D9D9D9',
     text3: '#ACACAC',
@@ -54,12 +59,13 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     border1: '#E0E0E0',
     border2: '#A0A0A0',
     border3: '#4D4D4D',
-    border4: '#2A2A2A',
-    primary1: '#9DD7FF',
-    primary2: '#75C8FF',
-    destructive1: '#FCBABA',
-    destructive2: '#FA9E9E',
+    border4: '#313131',
+    primary1: '#0CA581',
+    primary2: '#0A8467',
+    destructive1: '#ED6D5F',
+    destructive2: '#BE574C',
     button_text: '#121212',
+    placeholder: '#666666',
   },
 };
 
