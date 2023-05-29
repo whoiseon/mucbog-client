@@ -23,7 +23,7 @@ export default function Home() {
       </Head>
       <BasicTemplate>
         <Content>
-          <HeaderText title={router.query.tag ? router.query.tag : '개발'} />
+          <HeaderText title={router.query.tag ? router.query.tag : '모든 글'} />
           <HomeContent />
         </Content>
       </BasicTemplate>

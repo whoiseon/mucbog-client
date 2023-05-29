@@ -46,7 +46,7 @@ const TableHeader = styled.div<{ tag: string }>`
     line-height: 1.5;
     cursor: pointer;
     transition: all 0.125s ease-in-out;
-    color: ${themedPalette.text3};
+    color: ${themedPalette.text2};
     &.active {
       color: ${themedPalette.primary2};
       transform: scale(1.05);

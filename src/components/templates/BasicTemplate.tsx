@@ -33,6 +33,7 @@ function BasicTemplate({
 const Content = styled.main`
   padding-bottom: 48px;
   background-color: ${themedPalette.bg_page};
+  height: 100%;
   ${media.mobile} {
     padding-bottom: 64px;
   }

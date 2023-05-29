@@ -8,6 +8,7 @@ import postState from '@/states/post';
 import useDeletePost from '@/lib/hooks/useDeletePost';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { media } from '@/lib/media';
 
 interface Props {
   title?: string;
@@ -39,8 +40,8 @@ function PostHead({ title, createdAt, tags }: Props) {
           <Separator>·</Separator>
           <span>{moment(createdAt).format('YYYY년 M월 DD일')}</span>
         </div>
-        <div className="right">
-          {myData && (
+        {myData && (
+          <div className="right">
             <PostButtons>
               <button className="delete" type="button" onClick={onDelete}>
                 삭제하기
@@ -52,8 +53,8 @@ function PostHead({ title, createdAt, tags }: Props) {
                 수정하기
               </Link>
             </PostButtons>
-          )}
-        </div>
+          </div>
+        )}
       </Info>
       <PostTags tags={tags} />
     </Block>
@@ -81,12 +82,23 @@ const Block = styled.div`
 
 const Info = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+
   .left {
   }
+
   .right {
-    min-width: 240px;
+    margin-top: 16px;
+
+    ${media.mobile} {
+      min-width: 240px;
+    }
+  }
+
+  ${media.mobile} {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;
 

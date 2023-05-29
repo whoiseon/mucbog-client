@@ -12,6 +12,7 @@ type ThemeVariables = {
   border2: string;
   border3: string;
   border4: string;
+  border5: string;
   primary1: string;
   primary2: string;
   destructive1: string;
@@ -39,6 +40,7 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     border2: '#A2AAB2',
     border3: '#C7CBCF',
     border4: '#D7DBDF',
+    border5: '#E9E9E9',
     primary1: '#4DB33D',
     primary2: '#71C264',
     destructive1: '#FB4E4E',
@@ -60,6 +62,7 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
     border2: '#A0A0A0',
     border3: '#4D4D4D',
     border4: '#313131',
+    border5: '#202020',
     primary1: '#0CA581',
     primary2: '#0A8467',
     destructive1: '#ED6D5F',

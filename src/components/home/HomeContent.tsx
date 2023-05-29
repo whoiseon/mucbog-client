@@ -38,7 +38,7 @@ const Block = styled.div`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  gap: 32px;
+  gap: 16px;
   ${media.tablet} {
     flex-direction: row;
     align-items: flex-start;

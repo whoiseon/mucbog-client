@@ -16,15 +16,15 @@ const styles = css`
     -moz-osx-font-smoothing: grayscale;
     font-weight: 500;
     color: ${themedPalette.text1};
-    background-color: ${themedPalette.bg_element1};
+    background-color: ${themedPalette.bg_page};
     transition: 0.125s all ease-in;
     box-sizing: border-box;
+    overflow-y: initial;
   }
 
   html,
-  body,
   #__next {
-    min-height: 100%;
+    height: 100%;
   }
 
   body {

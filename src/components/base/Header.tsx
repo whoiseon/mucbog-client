@@ -47,17 +47,11 @@ function Header() {
                 </>
               ) : (
                 <>
-                  <Button variant="text" size="small" href="/">
-                    개발
-                  </Button>
-                  <Button variant="text" size="small" href="/project">
-                    프로젝트
-                  </Button>
-                  {/*{myData && (*/}
-                  {/*  <Button variant="primary" size="small" href="/admin/write">*/}
-                  {/*    새 글 작성*/}
-                  {/*  </Button>*/}
-                  {/*)}*/}
+                  {myData && (
+                    <Button variant="primary" size="small" href="/admin/write">
+                      새 글 작성
+                    </Button>
+                  )}
                 </>
               ))}
           </HeaderRight>
@@ -74,8 +68,8 @@ const Block = styled.header`
   width: 100%;
   height: 64px;
   z-index: 1;
-  background-color: ${themedPalette.bg_element1};
-  border-bottom: 1px solid ${themedPalette.border4};
+  background-color: ${themedPalette.bg_page};
+  border-bottom: 1px solid ${themedPalette.border5};
 `;
 
 const Inner = styled.div`

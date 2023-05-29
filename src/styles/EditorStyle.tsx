@@ -215,7 +215,8 @@ export const markdownBodyStyle = css`
     margin-right: 0;
   }
   hr {
-    border: 0.5px solid ${themedPalette.border3};
+    border: 0.5px solid ${themedPalette.border4};
+    margin: 32px 0;
   }
   a {
     color: ${themedPalette.primary2};

@@ -84,7 +84,9 @@ function PostViewer() {
       />
       <Content>
         <Body>
-          <Thumbnail src={post?.thumbnail} alt={post?.title} />
+          <ThumbnailBox>
+            <Thumbnail src={post?.thumbnail} alt={post?.title} />
+          </ThumbnailBox>
           <BodyContent ref={bodyRef}>
             <Markdown markdownText={post?.body.toString() || ''} />
           </BodyContent>
@@ -144,14 +146,20 @@ const BodyContent = styled.div`
   ${markdownBodyStyle};
 `;
 
+const ThumbnailBox = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Thumbnail = styled.img`
-  max-height: 100vh;
-  max-width: 100%;
-  width: auto;
-  height: auto;
+  width: 100%;
   object-fit: contain;
   display: block;
   border-radius: 16px;
+
+  ${media.mobile} {
+    max-width: 640px;
+  }
 `;
 
 export default PostViewer;

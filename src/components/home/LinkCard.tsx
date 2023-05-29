@@ -54,12 +54,12 @@ const Block = styled.article`
     }
   }
   p {
-    margin-top: 16px;
+    margin-top: 8px;
     margin-bottom: 0;
     color: ${themedPalette.text2};
     &:last-of-type {
-      margin-top: 32px;
-      color: ${themedPalette.text4};
+      margin-top: 16px;
+      color: ${themedPalette.text3};
       ${media.tablet} {
         margin-top: 32px;
       }

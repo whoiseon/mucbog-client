@@ -35,7 +35,7 @@ function HomeTag({ tag, totalPost }: Props) {
 }
 
 const Block = styled.div<{ isActive: boolean; isTablet: boolean }>`
-  padding: 10px 12px;
+  padding: 8px 12px;
   border-radius: 6px;
   white-space: nowrap;
   ${media.tablet} {
@@ -45,7 +45,7 @@ const Block = styled.div<{ isActive: boolean; isTablet: boolean }>`
   ${(props) =>
     props.isActive &&
     css`
-      background-color: ${themedPalette.bg_element3};
+      background-color: ${themedPalette.bg_element2};
       a {
         font-weight: 700;
         color: ${themedPalette.primary2};
