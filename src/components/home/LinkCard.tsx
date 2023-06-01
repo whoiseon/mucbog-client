@@ -17,11 +17,7 @@ interface Props {
 function LinkCard({ post }: Props) {
   return (
     <Block>
-      <StyledLink
-        href={`/${translateCategory(post.category.name)}/${generateSlug(
-          post.title,
-        )}`}
-      >
+      <StyledLink href={`/${generateSlug(post.title)}`}>
         {post.thumbnail && <Thumbnail src={post.thumbnail} alt={post.title} />}
         <PostInfo>
           <h3>{post.title}</h3>

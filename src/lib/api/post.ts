@@ -17,19 +17,7 @@ interface PostUpdateParams extends PostRequestParams {
 }
 
 export const getDevRecentPosts = async (page: number) => {
-  const response = await axios.get(`/api/posts/dev/recent?page=${page || 1}`);
-  return response.data;
-};
-
-export const getProjectRecentPosts = async (page: number) => {
-  const response = await axios.get(
-    `/api/posts/project/recent?=page${page || 1}`,
-  );
-  return response.data;
-};
-
-export const getAllPosts = async () => {
-  const response = await axios.get('/api/posts');
+  const response = await axios.get(`/api/posts/recent?page=${page || 1}`);
   return response.data;
 };
 

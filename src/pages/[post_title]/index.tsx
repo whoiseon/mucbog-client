@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 export default function Home() {
   const { query } = useRouter();
   const { data: post } = useQuery<Post>({
-    queryKey: ['posts', query.category, query.post_title],
+    queryKey: ['posts', query.post_title],
     queryFn: () => getPostByTitle(query.post_title as string),
   });
   return (

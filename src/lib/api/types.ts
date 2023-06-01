@@ -24,11 +24,6 @@ export interface PostTag {
   name: string;
 }
 
-export interface Category {
-  id: number;
-  name: string;
-}
-
 export interface Post {
   id: number;
   title: string;
@@ -38,7 +33,6 @@ export interface Post {
   updatedAt: Date;
   thumbnail?: string;
   isPrivate?: boolean;
-  category: Category;
   user: User;
   tags: PostTag[];
   prevPost?: Post | null;
